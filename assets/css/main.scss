@@ -1,0 +1,18 @@
+// FontAwesome
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/solid';
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/brands';
+
+// Google Fonts
+@mixin google-font($family) {
+	@import url('http://fonts.googleapis.com/css?family=#{$family}');
+}
+
+@include google-font('Roboto');
+@include google-font('Roboto Slab');
+
+// Global styling
+body {
+	background: #2a3b4a url('../images/scales.png');
+	font-family: 'Roboto', sans-serif;
+}
