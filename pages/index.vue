@@ -21,7 +21,7 @@ export default {
 		<section class="card mx-auto place-self-center text-center font-medium">
 			<figure>
 				<img class="border-4 border-dark rounded-full shadow-2xl w-36 h-36 mx-auto hover:scale-95 transition-transform duration-500" width="144" height="144"
-					src="images/me-1400x1400.jpg" srcset="images/me-144x144.jpg 144w, images/me.jpg 1400w" sizes="7vw"
+					src="/images/me-1400x1400.jpg" srcset="/images/me-144x144.jpg 144w, /images/me-1400x1400.jpg 1400w" sizes="(max-width: 640px) 144px, 1400px"
 					alt="Photo of Adory">
 				<figcaption class="mt-3">
 					<div class="font-semibold serif text-lg text-blue-300">
