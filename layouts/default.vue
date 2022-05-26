@@ -27,7 +27,7 @@ export default {
 		</Head>
 
 		<Navbar :current-page="currentPage" />
-		<div class="sm:container sm:w-2/3 sm:my-32 m-5 sm:mx-auto">
+		<div class="sm:container lg:w-2/3 lg:my-32 m-5 sm:mx-auto">
 			<BodyCard>
 				<slot />
 			</BodyCard>
