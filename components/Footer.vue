@@ -1,7 +1,7 @@
 <template>
-	<footer class="absolute bottom-0 bg-slate-900 border-t-2 border-slate-500 w-full">
+	<footer class="absolute? bottom-0 bg-dark border-t-2 border-slate-500 w-full">
 		<div
-			class="flex flex-wrap container items-center justify-between lg:w-2/3 text-white mx-auto py-8"
+			class="flex flex-wrap container items-center justify-between lg:w-2/3 text-white mx-auto py-8 px-6 lg:px-0"
 		>
 			<div id="leftDiv" class="flex items-center gap-x-4">
 				<img src="/images/me-1400x1400.jpg" class="w-14 rounded-full" alt="Picture of Adory" />
@@ -9,21 +9,21 @@
 				<address class="not-italic">
 					<strong>Adory Vo</strong>
 					<br />
-					<a
-						class="text-blue-400 hover:text-blue-500"
-						href="mailto:business@adoryvo.com"
-					>business@adoryvo.com</a>
+					<NuxtLink
+						class="link-primary"
+						to="mailto:business@adoryvo.com"
+					>business@adoryvo.com</NuxtLink>
 				</address>
 			</div>
 
-			<div id="rightDiv" class="sm:text-right">
+			<div id="rightDiv" class="sm:text-right mt-3 lg:mt-0">
 				<div>
 					Made with
-					<i class="fas fa-heart text-blue-200"></i>
+					<i class="fas fa-heart text-light animate-heartbeat"></i>
 					in San Diego.
 				</div>
 				<div>
-					<a href="#" class="text-blue-300 hover:text-blue-400">Back to top</a>
+					<a href="#" class="link-light">Back to top</a>
 				</div>
 			</div>
 		</div>

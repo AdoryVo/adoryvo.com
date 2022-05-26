@@ -1,0 +1,11 @@
+// Font Awesome
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/solid';
+@use '~/node_modules/@fortawesome/fontawesome-free/scss/brands';
+
+// Google Fonts
+@mixin google-font($family) {
+	@import url('http://fonts.googleapis.com/css2?family=#{$family}:wght@400;500;700&display=swap');
+}
+@include google-font('Roboto');
+@include google-font('Roboto Slab');

@@ -1,13 +1,17 @@
-import { defineNuxtConfig } from 'nuxt3';
+import { defineNuxtConfig } from 'nuxt';
 
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-	buildModules: [
+	css: [
+		'@/assets/css/imports.scss'
+	],
+	modules: [
 		'@nuxtjs/tailwindcss'
 	],
-	css: [
-		'@/assets/css/main.scss'
-	],
+	tailwindcss: {
+		cssPath: '~/assets/css/main.scss',
+		viewer: false
+	},
 	typescript: {
 		shim: false,
 	},

@@ -1,0 +1,174 @@
+{
+	"Cane's": {
+		"Sun,Mon,Tues,Wed": {
+			"opening": "9:00",
+			"closing": "2:00"
+		},
+		"Thurs,Fri,Sat": {
+			"opening": "9:00",
+			"closing": "3:30"
+		}
+	},
+	"CAVA": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "10:45",
+			"closing": "22:00"
+		}
+	},
+	"Chipotle": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "10:30",
+			"closing": "22:00"
+		}
+	},
+	"Cross Street Chicken": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "11:30",
+			"closing": "21:45"
+		}
+	},
+	"Dave's Hot Chicken": {
+		"Sun,Mon,Tues,Wed,Thurs": {
+			"opening": "11:00",
+			"closing": "23:00"
+		},
+		"Fri,Sat": {
+			"opening": "11:00",
+			"closing": "0:00"
+		}
+	},
+	"Domino's (Delivery)": {
+		"Sun,Mon,Tues,Wed,Thurs": {
+			"opening": "10:00",
+			"closing": "0:00"
+		},
+		"Fri,Sat": {
+			"opening": "10:00",
+			"closing": "1:00"
+		}
+	},
+	"Domino's (Takeout)": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "9:00",
+			"closing": "22:00"
+		}
+	},
+	"In-N-Out": {
+		"Sun,Mon,Tues,Wed,Thurs": {
+			"opening": "10:30",
+			"closing": "1:00"
+		},
+		"Fri,Sat": {
+			"opening": "10:30",
+			"closing": "1:30"
+		}
+	},
+	"Koon Thai": {
+		"Sun,Mon,Tues,Wed,Thurs": {
+			"opening": "16:00",
+			"closing": "21:00"
+		},
+		"Fri,Sat": {
+			"opening": "16:00",
+			"closing": "22:00"
+		}
+	},
+	"Little Sakana": {
+		"Sun,Fri,Sat": {
+			"opening": "12:00",
+			"closing": "22:00"
+		},
+		"Mon,Tues,Wed,Thurs": {
+			"opening": "12:00",
+			"closing": "21:30"
+		}
+	},
+	"Lolita's": {
+		"Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "8:00",
+			"closing": "21:00"
+		}
+	},
+	"L&L Hawaiian Barbecue": {
+		"Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "10:00",
+			"closing": "21:00"
+		}
+	},
+	"Manna BBQ (Convoy)": {
+		"Sun": {
+			"opening": "12:00",
+			"closing": "22:00"
+		},
+		"Mon,Tues,Wed,Thurs": {
+			"opening": "12:00",
+			"closing": "23:00"
+		},
+		"Fri,Sat": {
+			"opening": "12:00",
+			"closing": "23:30"
+		}
+	},
+	"Manna BBQ (Mira Mesa)": {
+		"Sun,Mon,Tues,Wed,Thurs": {
+			"opening": "11:30",
+			"closing": "22:00"
+		},
+		"Fri,Sat": {
+			"opening": "11:30",
+			"closing": "23:00"
+		}
+	},
+	"McDonald's": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "0:00",
+			"closing": "0:00"
+		}
+	},
+	"Micheline's Pita House": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "11:00",
+			"closing": "21:00"
+		}
+	},
+	"Pho Cow Cali": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "8:00",
+			"closing": "21:00"
+		}
+	},
+	"Poki One N Half": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "11:00",
+			"closing": "22:00"
+		}
+	},
+	"Regents Pizza": {
+		"Sun,Mon": {
+			"opening": "11:00",
+			"closing": "20:00"
+		},
+		"Wed,Thurs,Fri,Sat": {
+			"opening": "11:00",
+			"closing": "22:00"
+		}
+	},
+	"Rubicon Deli": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "10:00",
+			"closing": "19:30"
+		}
+	},
+	"Szechuan Chef": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "11:00",
+			"closing": "21:00"
+		}
+	},
+	"Vallarta Express": {
+		"Sun,Mon,Tues,Wed,Thurs,Fri,Sat": {
+			"opening": "0:00",
+			"closing": "0:00"
+		}
+	}
+}

@@ -1,18 +1,44 @@
-// FontAwesome
-@use '~/node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
-@use '~/node_modules/@fortawesome/fontawesome-free/scss/solid';
-@use '~/node_modules/@fortawesome/fontawesome-free/scss/brands';
-
-// Google Fonts
-@mixin google-font($family) {
-	@import url('http://fonts.googleapis.com/css?family=#{$family}');
-}
-
-@include google-font('Roboto');
-@include google-font('Roboto Slab');
+// Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // Global styling
 body {
-	background: #2a3b4a url('../images/scales.png');
+	background: theme('colors.primary') url('../images/scales.png');
 	font-family: 'Roboto', sans-serif;
+}
+
+::selection {
+	background: rgba(255, 255, 255, 0.1);
+	color: theme('colors.sky.100');
+	text-shadow: 0.5px 1px theme('colors.blue.400');
+}
+
+// Custom styling
+// - Custom components
+@layer components {
+	.card {
+		@apply bg-primary border-4 border-dark text-white rounded-xl px-4 py-6 sm:p-8;
+	}
+
+	.link-primary {
+		@apply text-blue-400 hover:text-blue-500;
+	}
+
+	.link-light {
+		@apply text-blue-300 hover:text-blue-400;
+	}
+
+	.text-light {
+		@apply text-blue-200;
+	}
+
+	.text-blue {
+		@apply text-blue-500;
+	}
+}
+
+.serif {
+	font-family: 'Roboto Slab', serif;
 }
