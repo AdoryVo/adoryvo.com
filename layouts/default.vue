@@ -1,8 +1,14 @@
 <script>
 function getTitle(path) {
 	const sliced = path.split('-');
+
+	return sliced.join(' ');
+
+	/*
+	// Capitalize the first letter of each word
 	const capitalized = sliced.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
 	return capitalized.join(' ');
+	*/
 }
 
 export default {

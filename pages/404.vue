@@ -1,5 +1,9 @@
 <template>
 	<main>
+		<Head>
+			<Title>404: page not found</Title>
+		</Head>
+
 		<BodyTitle>404: page not found</BodyTitle>
 		<p>
 			It seems like you've stumbled upon an invalid page! 

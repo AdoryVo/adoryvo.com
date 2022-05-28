@@ -18,6 +18,10 @@ export default {
 
 <template>
 	<main class="h-screen grid">
+		<Head>
+			<Title>adoryvo.com</Title>
+		</Head>
+
 		<section class="card mx-auto place-self-center text-center font-medium">
 			<figure>
 				<img class="border-4 border-dark rounded-full shadow-2xl w-36 h-36 mx-auto hover:scale-95 transition-transform duration-500" width="144" height="144"
