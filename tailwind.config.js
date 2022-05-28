@@ -22,5 +22,8 @@ module.exports = {
         heartbeat: 'heartbeat 2s linear infinite alternate'
       }
     },
-  }
+  },
+  plugins: [
+    require('@tailwindcss/forms')
+  ]
 }

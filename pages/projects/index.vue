@@ -2,6 +2,7 @@
 export default {
 	setup() {
 		const wipPages = reactive([
+					{title: 'Check Splitter', path: 'check-splitter'},
 					{title: 'Restaurant Roulette', path: 'restaurant-roulette'},
 				]);
 	

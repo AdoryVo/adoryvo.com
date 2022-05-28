@@ -15,6 +15,12 @@ body {
 	text-shadow: 0.5px 1px theme('colors.blue.400');
 }
 
+input::selection {
+	background: rgba(0, 0, 0, 0.5);
+	color: theme('colors.sky.100');
+	text-shadow: 0.5px 1px theme('colors.blue.400');
+}
+
 // Custom styling
 // - Custom components
 @layer components {
@@ -36,6 +42,10 @@ body {
 
 	.text-blue {
 		@apply text-blue-500;
+	}
+
+	.input-primary {
+		@apply block rounded-md border-2 border-blue-200 text-primary mt-1 focus:border-blue-100 focus:ring focus:ring-blue-300 focus:ring-opacity-50;
 	}
 }
 
