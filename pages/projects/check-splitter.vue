@@ -6,6 +6,19 @@ const vFormA = {
 		inputs.forEach(input => {
 			input.value = '';
 		});
+
+		form.elements['useDefaultTaxRate'].addEventListener('change', function() {
+			const checkSubtotalDiv = form.elements['checkSubtotal'].parentNode;
+			const taxDiv = form.elements['tax'].parentNode;
+			
+			if (this.checked) {
+				checkSubtotalDiv.classList.replace('block', 'hidden');
+				taxDiv.classList.replace('block', 'hidden');
+			} else {
+				checkSubtotalDiv.classList.replace('hidden', 'block');
+				taxDiv.classList.replace('hidden', 'block');
+			}
+		});
 	}
 }
 </script>
@@ -13,21 +26,30 @@ const vFormA = {
 <template>
 	<main>
 		<BodyTitle>check splitter</BodyTitle>
-		<p class="mb-4">A tool to figure out how much an individual pays (including tax!) when splitting a check!</p>
+		<p class="mb-4">
+			A tool to figure out how much an individual pays (including tax!) when splitting a check!
+			<br>
+			To verify that your check uses a 7.75% tax rate, plug in your check subtotal below and see if the result matches the check total.
+		</p>
 
 		<form v-form-a id="formA" oninput="calcIndShare()">
 			<label class="block my-3">
+				<input type="checkbox" name="useDefaultTaxRate" class="rounded mr-1" checked>
+				Use San Diego Sales Tax Rate of 7.75% 
+			</label>
+
+			<label class="block mb-3">
 				Individual Subtotal ($) - accepts math expressions
 				<input type="text" name="indSubtotal" placeholder="ex: 1.00 + 1.50*3" class="input-primary">
 				<span id="exprErrorMsg" class="text-red-500 mt-1"></span>
 			</label>
 
-			<label class="block my-3">
+			<label class="hidden my-3">
 				Check Subtotal ($)
 				<input type="number" name="checkSubtotal" placeholder="0.00" step=".01" min="0" class="input-primary">
 			</label>
 
-			<label class="block my-3">
+			<label class="hidden my-3">
 				Check Tax ($)
 				<input type="number" name="tax" placeholder="0.00" step=".01" min="0" class="input-primary">
 			</label>

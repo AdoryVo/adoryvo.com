@@ -25,11 +25,11 @@
 		<BodyHeading class="mb-2">Profiles</BodyHeading>
 		<div class="bg-dark inline-block p-3 rounded-lg">
 			<img class="inline w-14 rounded-full mr-2" src="/images/me-144x144.jpg" alt="logo">
-			<a href="https://open.spotify.com/user/exobyterotmg" target="_blank"
+			<NuxtLink to="https://open.spotify.com/user/exobyterotmg" target="_blank"
 				class="bg-green-500 hover:bg-green-600 rounded-full serif p-2 px-3">
 				<i class="fa-brands fa-spotify mr-2 animate-pulse"></i>
 				Follow on Spotify
-			</a>
+			</NuxtLink>
 		</div>
 	</main>
 </template>
