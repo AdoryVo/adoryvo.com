@@ -5,6 +5,36 @@ export default {
 			layout: false
 		});
 
+		useHead({
+			title: 'adoryvo.com',
+			meta: [
+				{ name: 'description', content: 'Adory Vo is an aspiring software developer and educator studying Computer Science at UC San Diego in La Jolla, CA.' },
+				{
+					property: 'og:url',
+					content: 'https://www.adoryvo.com'
+				},
+				{
+					property: 'og:title',
+					content: 'adoryvo.com'
+				},
+				{
+					property: 'og:description',
+					content: 'Adory Vo is an aspiring software developer and educator studying Computer Science at UC San Diego in La Jolla, CA.'
+				},
+				{
+					property: 'og:type',
+					content: 'website'
+				},
+				{
+					property: 'og:image',
+					content: 'https://www.adoryvo.com/images/site-preview.png'
+				}
+			],
+			link: [
+				{ rel: 'canonical', href: 'https://www.adoryvo.com/' }
+			]
+		})
+
 		const pages = reactive([
 					'about',
 					'projects',
@@ -18,10 +48,6 @@ export default {
 
 <template>
 	<main class="h-screen grid">
-		<Head>
-			<Title>adoryvo.com</Title>
-		</Head>
-
 		<section class="card mx-auto place-self-center text-center font-medium">
 			<figure>
 				<img class="border-4 border-dark rounded-full shadow-2xl w-36 h-36 mx-auto hover:scale-95 transition-transform duration-500" width="144" height="144"

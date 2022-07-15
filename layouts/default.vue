@@ -30,6 +30,8 @@ export default {
 	<div class="min-h-screen grid auto-rows-min content-between">
 		<Head>
 			<Title>{{ currentTitle }}</Title>
+			<Meta name="author" content="Adory Vo" />
+			<Meta name="theme-color" content="#2a3b4a" />
 		</Head>
 
 		<Navbar :current-page="currentPage" />
