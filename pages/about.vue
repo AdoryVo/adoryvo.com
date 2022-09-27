@@ -2,10 +2,10 @@
 	<main>
 		<BodyTitle>about</BodyTitle>
 		<p>
-			Hey! I'm <b class="text-blue-300">Adory</b>, a third-year at <b class="text-blue">UC San Diego</b> studying
+			Hey! I'm <b class="text-blue-300">Adory</b>, a senior at <b class="text-blue">UC San Diego</b> studying
 			math &amp; computer science
 			to pursue a career in software development and potentially teaching.
-			I have been doing freelance web development for about two years now and this website is a web development
+			I have been doing freelance web development for about three years now and this website is a web development
 			project of mine
 			where I'll be showcasing some of my work.
 			This website is created from scratch with Vue/Nuxt 3 and stylized with Tailwind CSS
