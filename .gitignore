@@ -1,8 +1,20 @@
+# Dependencies
 node_modules
-*.log*
+
+# Vue/Nuxt
 .nuxt
 .nitro
 .cache
 .output
-.env
 dist
+
+# Yarn 2
+.yarn
+.pnp.*
+
+# Logs
+*.log*
+
+# Miscellaneous
+.env
+.DS_Store

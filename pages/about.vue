@@ -15,7 +15,7 @@
 		<BodyHeading>More about me!</BodyHeading>
 		<ul class="list-disc list-inside">
 			<li>I play the piano and violin</li>
-			<li>I have learned Chinese and Korean in school</li>
+			<li>I have studied Chinese and Korean in school</li>
 			<li>I have a younger brother and sister</li>
 			<li>I ran the 2019 San Diego Half Marathon with a time of 1:37:39 (7:27 min/mile)</li>
 			<li>I enjoy tutoring/teaching computer science and math (tutored for CSE 12/15L under Gary Gillespie)</li>

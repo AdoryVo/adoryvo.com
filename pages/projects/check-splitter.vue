@@ -54,7 +54,7 @@ const vFormA = {
 				<input type="number" name="tax" placeholder="0.00" step=".01" min="0" class="input-primary">
 			</label>
 
-			<BodyHeading>Result</BodyHeading>
+			<BodyHeading class="mt-5">Result</BodyHeading>
 			Individual's Total Share: $<span id="totalShare">0.00</span>
 		</form>
 
