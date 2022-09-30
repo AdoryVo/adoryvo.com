@@ -9,7 +9,8 @@ node_modules
 dist
 
 # Yarn 2
-.yarn
+.yarn/cache
+.yarn/install-state.gz
 .pnp.*
 
 # Logs
