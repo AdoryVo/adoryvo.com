@@ -1,6 +1,8 @@
-# Nuxt 3 Minimal Starter
+# adoryvo.com
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2b8a7d9f-3c96-4f10-b328-cdb5e5f05f67/deploy-status)](https://app.netlify.com/sites/adoryvo/deploys)
+
+Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
 ## Setup
 
@@ -19,7 +21,7 @@ pnpm install --shamefully-hoist
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the development server on http://localhost:3000:
 
 ```bash
 npm run dev
@@ -39,4 +41,4 @@ Locally preview production build:
 npm run preview
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+Deployed via [Nuxt 3's Nitro + Netlify](https://nitro.unjs.io/deploy/providers/netlify).
