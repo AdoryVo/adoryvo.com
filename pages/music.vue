@@ -14,8 +14,8 @@
 			<br>
 			Click picture to zoom in, click off to zoom out.
 		</p>
-		<img class="hover:cursor-zoom-in focus:scale-125 duration-[2000ms]" tabindex="0" src="/images/fav-music.png"
-			alt="Favorite projects Topster collage">
+		<nuxt-img class="hover:cursor-zoom-in focus:scale-125 duration-[2000ms]" tabindex="0" src="/images/fav-music.png"
+			format="webp" alt="Favorite projects Topster collage" />
 
 		<BodyHeading class="mb-2">Favorite Tracks</BodyHeading>
 		<iframe src="https://open.spotify.com/embed/playlist/5Mx2GuWlNpbpYRix5VbQxx?utm_source=generator"
@@ -24,7 +24,7 @@
 
 		<BodyHeading class="mb-2">Profiles</BodyHeading>
 		<div class="bg-dark inline-block p-3 rounded-lg">
-			<img class="inline w-14 rounded-full mr-2" src="/images/me-144x144.jpg" alt="logo">
+			<nuxt-img class="inline w-14 rounded-full mr-2" src="/images/me-1728x1728.jpg" format="webp" alt="Spotify profile picture" />
 			<NuxtLink to="https://open.spotify.com/user/exobyterotmg" target="_blank"
 				class="bg-green-500 hover:bg-green-600 rounded-full serif p-2 px-3">
 				<i class="fa-brands fa-spotify mr-2 animate-pulse"></i>

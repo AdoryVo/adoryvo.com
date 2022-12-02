@@ -50,9 +50,8 @@ export default {
 	<main class="h-screen grid">
 		<section class="card mx-auto place-self-center text-center font-medium">
 			<figure>
-				<img class="border-4 border-dark rounded-full shadow-2xl w-36 h-36 mx-auto hover:scale-95 transition-transform duration-500" width="144" height="144"
-					src="/images/me-1400x1400.jpg" srcset="/images/me-144x144.jpg 144w, /images/me-1400x1400.jpg 1400w" sizes="(max-width: 640px) 144px, 1400px"
-					alt="Photo of Adory">
+				<nuxt-img class="border-4 border-dark rounded-full shadow-2xl mx-auto hover:scale-95 transition-transform duration-500"
+					width="152" height="152" src="/images/me-1728x1728.jpg" format="webp" quality="100" alt="Photo of Adory" />
 				<figcaption class="mt-3">
 					<div class="font-semibold serif text-lg text-blue-300">
 						Adory Vo
@@ -63,11 +62,11 @@ export default {
 				</figcaption>
 			</figure>
 
-			<div class="text-red-600 mt-2">
+			<div class="text-emerald-400 mt-2">
 				<i class="fas fa-graduation-cap"></i>
 				Torrey Pines High School '19
 			</div>
-			<div class="text-blue">
+			<div class="text-blue-400">
 				<i class="fas fa-university"></i>
 				UC San Diego '23
 			</div>

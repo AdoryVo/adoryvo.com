@@ -28,7 +28,7 @@ export default {
 		<nav class="flex lg:flex-wrap container items-center justify-center sm:justify-between lg:w-2/3 text-light mx-auto py-5">
 			<div id="navLinks" class="flex items-center uppercase text-sm">
 				<NuxtLink to="/" class="hover:scale-90 transition-transform duration-500 mr-2 sm:mr-4">
-					<img class="w-12 md:w-14" src="/images/favicon-64x64.png" alt="logo" />
+					<nuxt-img class="w-12 md:w-14" src="/images/favicon-64x64.png" format="webp" alt="logo" />
 				</NuxtLink>
 				<NavLink v-for="page of pages" :to="`/${page}`" :currentPage="currentPage" :key="page">{{ page }}</NavLink>
 			</div>
