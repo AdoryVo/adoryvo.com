@@ -7,7 +7,7 @@
 		</p>
 
 		<BodyHeading>
-			Top 100 Projects as of April 2022
+			Top 100 Projects as of February 2023
 		</BodyHeading>
 		<p>
 			Roughly ordered into sections.

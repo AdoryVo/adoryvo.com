@@ -21,6 +21,13 @@ const vFormA = {
 		});
 	}
 }
+
+useHead({
+		script: [
+			{ src: 'https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.0/math.min.js' },
+			{ src: '/scripts/check-splitter.js' }
+		]
+	})
 </script>
 
 <template>
@@ -66,8 +73,5 @@ const vFormA = {
 			<li>Functionality to store your results to keep track of all of a check's splits</li>
 			<li>A tool to calculate splitting a check evenly</li>
 		</ul>
-
-		<Script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.0/math.min.js"></Script>
-		<Script src="/scripts/check-splitter.js"></Script>
 	</main>
 </template>

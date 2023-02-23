@@ -1,3 +1,11 @@
+<script setup>
+	useHead({
+		script: [
+			{ src: '/scripts/anagram-finder.js' }
+		]
+	})
+</script>
+
 <template>
 	<main>
 		<BodyTitle class="mb-1">anagram finder</BodyTitle>
@@ -31,7 +39,5 @@
 				<li>🤔</li>
 			</ul>
 		</form>
-
-		<Script src="/scripts/anagram-finder.js"></Script>
 	</main>
 </template>

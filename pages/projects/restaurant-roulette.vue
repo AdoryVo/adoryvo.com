@@ -1,3 +1,11 @@
+<script setup>
+	useHead({
+		script: [
+			{ src: '/scripts/restaurant-roulette.js' }
+		]
+	})
+</script>
+
 <template>
 	<main>
 		<BodyTitle>restaurant roulette</BodyTitle>
@@ -32,9 +40,5 @@
 			<li>Filtering restaurants by category (ex: cheap, expensive, takeout, dine-in)</li>
 			<li>Populating restaurants based on user location</li>
 		</ul>
-
-		<Script src="https://code.jquery.com/jquery-3.6.0.min.js"></Script>
-		<Script src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></Script>
-		<Script src="/scripts/restaurant-roulette.js"></Script>
 	</main>
 </template>
