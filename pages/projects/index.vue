@@ -3,6 +3,7 @@ export default {
 	setup() {
 		const completePages = reactive([
 					{title: 'Anagram Finder', path: '/projects/anagram-finder'},
+					{title: 'Big Two (online card game)', path: 'https://github.com/AdoryVo/big-two', target: '_blank'},
 					{title: 'Pokésearch', path: 'https://github.com/AdoryVo/pokesearch#-pokesearch', target: '_blank'},
 					{title: 'Recipe Manager', path: 'https://github.com/AdoryVo/team-ocean-recipe-manager#-team-oceans-recipe-manager', target: '_blank'},
 					{title: 'UCSD Schedule Calendarizer', path: 'https://adoryvo.github.io/calendarize-webreg/', target: '_blank'},
