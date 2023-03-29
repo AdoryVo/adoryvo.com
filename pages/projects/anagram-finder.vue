@@ -8,7 +8,7 @@
 
 <template>
 	<main>
-		<BodyTitle class="mb-1">anagram finder</BodyTitle>
+		<BodyTitle class="mb-0">anagram finder</BodyTitle>
 		<b class="text-green-400">Completed: September 2022</b>
 		<p class="my-4">
 			A tool to find all anagrams & sub-anagrams from a specified letter pool!

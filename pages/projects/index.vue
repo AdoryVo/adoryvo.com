@@ -4,8 +4,14 @@ export default {
 		const completePages = reactive([
 					{title: 'Anagram Finder', path: '/projects/anagram-finder'},
 					{title: 'Big Two (online card game)', path: 'https://github.com/AdoryVo/big-two', target: '_blank'},
+					{
+						title: 'Data Science w/ Python: Analyzing the Impact of Weather on Baseball Players', 
+						path: 'https://github.com/AdoryVo/baseball-weather-impact/blob/master/FinalProject_group031.ipynb', 
+						target: '_blank'
+					},
+					{title: 'Freelancing Web Development Projects', path: '/projects/freelancing'},
 					{title: 'Pokésearch', path: 'https://github.com/AdoryVo/pokesearch#-pokesearch', target: '_blank'},
-					{title: 'Recipe Manager', path: 'https://github.com/AdoryVo/team-ocean-recipe-manager#-team-oceans-recipe-manager', target: '_blank'},
+					{title: 'Team Ocean\'s Recipe Manager', path: 'https://github.com/AdoryVo/team-ocean-recipe-manager#-team-oceans-recipe-manager', target: '_blank'},
 					{title: 'UCSD Schedule Calendarizer', path: 'https://adoryvo.github.io/calendarize-webreg/', target: '_blank'},
 				]);
 
@@ -32,14 +38,14 @@ export default {
 		<BodyHeading>Complete</BodyHeading>
 		<ul class="list-disc list-inside mb-5">
 			<li v-for="page of completePages">
-				<NuxtLink class="link-primary" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
+				<NuxtLink class="link-light" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
 			</li>
 		</ul>
 
 		<BodyHeading>Work In Progress</BodyHeading>
 		<ul class="list-disc list-inside">
 			<li v-for="page of wipPages">
-				<NuxtLink class="link-primary" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
+				<NuxtLink class="link-light" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
 			</li>
 		</ul>
 	</main>
