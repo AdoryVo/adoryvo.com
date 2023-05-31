@@ -51,7 +51,7 @@ export default {
 		<section class="card mx-auto place-self-center text-center font-medium">
 			<figure>
 				<img class="border-4 border-dark rounded-full shadow-2xl mx-auto hover:scale-95 transition-transform duration-500"
-					width="152" height="152" src="/images/me-1728x1728.jpg" format="webp" quality="100" alt="Photo of Adory" />
+					width="152" height="152" src="/images/me.png" format="webp" quality="100" alt="Photo of Adory" />
 				<figcaption class="mt-3">
 					<div class="font-semibold serif text-lg text-blue-300">
 						Adory Vo

@@ -24,7 +24,7 @@
 
 		<BodyHeading class="mb-2">Profiles</BodyHeading>
 		<div class="bg-dark inline-block p-3 rounded-lg">
-			<img class="inline w-14 rounded-full mr-2" src="/images/me-1728x1728.jpg" format="webp" alt="Spotify profile picture" />
+			<img class="inline w-14 rounded-full mr-2" src="/images/me.png" format="webp" alt="Spotify profile picture" />
 			<NuxtLink to="https://open.spotify.com/user/exobyterotmg" target="_blank"
 				class="bg-green-500 hover:bg-green-600 rounded-full serif p-2 px-3">
 				<i class="fa-brands fa-spotify mr-2 animate-pulse"></i>
