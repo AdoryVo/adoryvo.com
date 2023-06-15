@@ -22,7 +22,7 @@
 			class="rounded-lg" width="100%" height="380"
 			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" />
 
-		<BodyHeading class="mb-2">Profiles</BodyHeading>
+		<BodyHeading class="mb-2 mt-8">Profiles</BodyHeading>
 		<div class="bg-dark inline-block p-3 rounded-lg">
 			<img class="inline w-14 rounded-full mr-2" src="/images/me.png" format="webp" alt="Spotify profile picture" />
 			<NuxtLink to="https://open.spotify.com/user/exobyterotmg" target="_blank"
