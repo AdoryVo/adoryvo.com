@@ -8,7 +8,7 @@ export default {
 		useHead({
 			title: 'adoryvo.com',
 			meta: [
-				{ name: 'description', content: 'Adory Vo is an aspiring software developer and educator studying Computer Science at UC San Diego in La Jolla, CA.' },
+				{ name: 'description', content: 'I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.' },
 				{
 					property: 'og:url',
 					content: 'https://www.adoryvo.com'
@@ -19,7 +19,7 @@ export default {
 				},
 				{
 					property: 'og:description',
-					content: 'Adory Vo is an aspiring software developer and educator studying Computer Science at UC San Diego in La Jolla, CA.'
+					content: 'I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.'
 				},
 				{
 					property: 'og:type',
