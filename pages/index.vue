@@ -8,7 +8,7 @@ export default {
 		useHead({
 			title: 'adoryvo.com',
 			meta: [
-				{ name: 'description', content: 'I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.' },
+				{ name: 'description', content: `I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.` },
 				{
 					property: 'og:url',
 					content: 'https://www.adoryvo.com'
@@ -19,7 +19,7 @@ export default {
 				},
 				{
 					property: 'og:description',
-					content: 'I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.'
+					content: `I'm a web/software enthusiast, avid music listener, and new grad from UC San Diego currently pursuing a career in software engineering.`
 				},
 				{
 					property: 'og:type',
