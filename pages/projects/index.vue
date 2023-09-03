@@ -7,7 +7,16 @@ export default {
 
 		const completePages = reactive([
 					{title: 'Anagram Finder', path: '/projects/anagram-finder'},
-					{title: 'Big Two (online card game)', path: 'https://bigtwo.vercel.app', target: '_blank', classes: styles.major},
+					{
+						title: 'Big Two (online card game)',
+						path: 'https://bigtwo.vercel.app',
+						target: '_blank',
+						classes: styles.major,
+						details: [
+							'Over 100 active players a week',
+							'International users from Malaysia, Singapore, Indonesia, etc.'
+						]
+					},
 					{
 						title: 'Data Science w/ Python: Analyzing the Impact of Weather on Baseball Players', 
 						path: 'https://github.com/AdoryVo/baseball-weather-impact/blob/master/FinalProject_group031.ipynb', 
@@ -19,13 +28,18 @@ export default {
 						title: 'Team Ocean\'s Recipe Manager', 
 						path: 'https://github.com/AdoryVo/team-ocean-recipe-manager#-team-oceans-recipe-manager', 
 						target: '_blank', 
-						classes: styles.major
+						classes: styles.major,
+						details: [
+							'Speech commands for touchless recipe interaction',
+							'Recipe customization, meal planning, & grocery list functionality'
+						]
 					},
 					{title: 'UCSD Schedule Calendarizer', path: 'https://adoryvo.github.io/calendarize-webreg/', target: '_blank'},
 				]);
 
 		const wipPages = reactive([
 					{title: 'Check Splitter', path: '/projects/check-splitter'},
+					{title: 'Lists', path: 'https://adoryvo.github.io/lists', target: '_blank'},
 					{title: 'Poketeam', path: 'https://github.com/AdoryVo/poketeam', target: '_blank'},
 					{title: 'Restaurant Roulette', path: '/projects/restaurant-roulette'},
 					{title: 'Streetspot', path: 'https://streetspot.netlify.app', target: '_blank', classes: styles.major},
@@ -49,6 +63,11 @@ export default {
 		<ul class="list-disc list-inside mb-5">
 			<li v-for="page of completePages">
 				<NuxtLink :class="`link-light ${page.classes}`" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
+				<ul class="list-disc list-inside pl-8">
+					<li v-for="detail of page.details">
+						{{ detail }}
+					</li>
+				</ul>
 			</li>
 		</ul>
 
@@ -56,6 +75,11 @@ export default {
 		<ul class="list-disc list-inside">
 			<li v-for="page of wipPages">
 				<NuxtLink :class="`link-light ${page.classes}`" :to="`${page.path}`" :target="page.target">{{ page.title }}</NuxtLink>
+				<ul class="list-disc list-inside pl-8">
+					<li v-for="detail of page.details">
+						{{ detail }}
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</main>
