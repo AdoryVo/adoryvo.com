@@ -9,7 +9,7 @@ export default {
 					},
 					{
 						title: 'CloudPizza Dallas', 
-						path: 'https://cloudpizzadallas.up.railway.app/', 
+						path: 'https://cloudpizzadallas.netlify.app/', 
 						completedAt: 'October 2020'
 					},
 					{

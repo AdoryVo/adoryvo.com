@@ -39,6 +39,7 @@ export default {
 
 		const wipPages = reactive([
 					{title: 'Check Splitter', path: '/projects/check-splitter'},
+					{title: 'Create Next App Fork', path: 'https://github.com/AdoryVo/create-next-app', target: '_blank'},
 					{title: 'Lists', path: 'https://adoryvo.github.io/lists', target: '_blank'},
 					{title: 'Poketeam', path: 'https://github.com/AdoryVo/poketeam', target: '_blank'},
 					{title: 'Restaurant Roulette', path: '/projects/restaurant-roulette'},

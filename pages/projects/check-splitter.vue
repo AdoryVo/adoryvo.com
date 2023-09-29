@@ -70,6 +70,7 @@ useHead({
 		<!-- Upcoming features -->
 		<h2 class="text-xl font-semibold text-emerald-300">Upcoming features</h2>
 		<ul class="list-disc list-inside">
+			<li>Text entry for tip percent to calculate tip split</li>
 			<li>Functionality to store your results to keep track of all of a check's splits</li>
 			<li>A tool to calculate splitting a check evenly</li>
 		</ul>
