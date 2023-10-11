@@ -1,3 +1,11 @@
-<h2 class="mt-2 text-lg font-semibold text-blue-100">
+---
+import { classMerge } from '../lib/utils'
+const props = Astro.props
+---
+
+<h2
+  class={classMerge('mt-2 text-lg font-semibold text-blue-100', props.class)}
+  {...props}
+>
   <slot />
 </h2>
