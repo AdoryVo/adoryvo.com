@@ -1,0 +1,11 @@
+---
+const { url } = Astro.props
+---
+
+<a
+  class="ml-2 text-blue-200 hover:text-blue-100 sm:ml-3"
+  href={url}
+  target="_blank"
+>
+  <slot />
+</a>

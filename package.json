@@ -1,22 +1,28 @@
 {
-  "private": true,
+  "name": "adoryvo.com",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "start": "node .output/server/index.mjs"
-  },
-  "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27827328.bc9ddc0",
-    "@nuxtjs/tailwindcss": "^6.1.3",
-    "@tailwindcss/forms": "^0.5.2",
-    "nuxt": "^3.2.2",
-    "sass": "^1.49.8",
-    "sass-loader": "^13.0.0",
-    "webpack": "^5.88.1"
+    "dev": "astro dev",
+    "dev:bun": "bunx --bun astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.0.0"
+    "@astrojs/tailwind": "^5.0.1",
+    "@fontsource-variable/roboto-flex": "^5.0.8",
+    "astro": "^3.2.3",
+    "clsx": "^2.0.0",
+    "lucide-astro": "^0.284.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.6",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-tailwindcss": "^0.5.5"
   }
 }
