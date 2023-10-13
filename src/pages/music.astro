@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Subheading from '../components/Subheading.astro'
 import meImage from '../assets/me.png'
+import top100Image from '../assets/top-100.png'
 ---
 
 <Layout title="music" description="Adory's favorite music">
@@ -9,10 +10,26 @@ import meImage from '../assets/me.png'
 
   <p class="mb-2">
     I enjoy listening to new music and curating various playlists in my spare
-    time! Here are some of my favorite artists and projects.
+    time! <br />
+     Here are some of my favorite artists and projects.
   </p>
 
-  <Subheading class="mb-2">Favorite Tracks</Subheading>
+  <Subheading class="mt-8">
+    Top 100 Favorite Projects as of October 2023
+  </Subheading>
+  <p>
+    In no particular order.
+    <br />
+     Click picture to zoom in, click off to zoom out.
+  </p>
+  <img
+    src={top100Image.src}
+    alt="Favorite music projects collage"
+    class="duration-[2000ms] hover:cursor-zoom-in focus:scale-125 md:focus:scale-[1.75]"
+    tabindex="0"
+  />
+
+  <Subheading class="mb-2 mt-8">Favorite Tracks</Subheading>
   <iframe
     src="https://open.spotify.com/embed/playlist/5Mx2GuWlNpbpYRix5VbQxx?utm_source=generator&theme=0"
     width="100%"
@@ -25,26 +42,30 @@ import meImage from '../assets/me.png'
   </iframe>
 
   <Subheading class="mb-2 mt-8">Profiles</Subheading>
-  <div class="inline-block rounded-lg bg-dark p-3">
-    <img
-      src={meImage.src}
-      class="mr-2 inline w-14 rounded-full"
-      alt="Spotify profile picture"
-    />
-    <a
-      href="https://open.spotify.com/user/exobyterotmg"
-      target="_blank"
-      class="rounded-full bg-green-500 p-2 px-3 hover:bg-green-600"
-    >
-      Spotify
-    </a>
+  <div class="flex items-center gap-4 rounded-lg bg-dark p-3">
+    <div>
+      <img
+        src={meImage.src}
+        class="mr-2 inline w-14 rounded-full"
+        alt="Spotify profile picture"
+      />
+    </div>
+    <div>
+      <a
+        href="https://open.spotify.com/user/exobyterotmg"
+        target="_blank"
+        class="rounded-full bg-green-500 p-2 px-3 hover:bg-green-600"
+      >
+        Spotify
+      </a>
 
-    <a
-      href="https://rateyourmusic.com/~Hyperbo1a"
-      target="_blank"
-      class="ms-2 rounded-full bg-blue-500 p-2 px-3 hover:bg-blue-600"
-    >
-      Rate Your Music (Sonemic)</a
-    >
+      <a
+        href="https://rateyourmusic.com/~Hyperbo1a"
+        target="_blank"
+        class="mt-4 inline-block rounded-full bg-blue-500 p-2 px-3 hover:bg-blue-600 md:ms-2 md:mt-0"
+      >
+        Rate Your Music</a
+      >
+    </div>
   </div>
 </Layout>
