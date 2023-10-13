@@ -11,7 +11,7 @@ export default {
 			pages: [
 				'about',
 				'projects',
-				'contact'
+				'blog'
 			],
 			bioLinks: [
 				{iconClass: 'fab fa-twitter', url: 'https://twitter.com/adoryvo'},
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-	<header id="navbar" class="bg-dark border-b-2 border-slate-500 w-full"> <!-- Absolute? -->
+	<header id="navbar" class="sticky top-0 bg-dark border-b-2 border-slate-500 w-full">
 		<nav class="flex lg:flex-wrap container items-center justify-center sm:justify-between lg:w-2/3 text-light mx-auto py-5">
 			<div id="navLinks" class="flex items-center uppercase text-sm">
 				<NuxtLink to="/" class="hover:scale-90 transition-transform duration-500 mr-2 sm:mr-4">

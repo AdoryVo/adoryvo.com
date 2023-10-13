@@ -38,7 +38,7 @@ export default {
 		const pages = reactive([
 					'about',
 					'projects',
-					'contact'
+					'blog'
 				]);
 	
 		return { pages }
