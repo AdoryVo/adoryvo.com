@@ -1,0 +1,11 @@
+---
+import { classMerge } from '../lib/utils'
+const props = Astro.props
+---
+
+<button
+  class={classMerge('rounded px-4 py-2 transition-colors', props.class)}
+  {...props}
+>
+  <slot />
+</button>
