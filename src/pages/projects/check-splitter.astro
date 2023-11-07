@@ -42,6 +42,11 @@ import { Eraser } from 'lucide-astro'
     <div>
       <Subheading class="mt-5">Result</Subheading>
        Individual's Total Share: $<span id="totalShare">0.00</span>
+      <br />
+      <i>Breakdown (subtotal + tax/tip):</i>
+       $<span id="subtotalShare">0.00</span> + $<span id="taxTipShare"
+        >0.00</span
+      >
     </div>
   </form>
 
@@ -137,6 +142,9 @@ import { Eraser } from 'lucide-astro'
     // Calculate subshares
     const taxTipShare = (indSubtotal / subtotal) * taxTip
     let totalShare = taxTipShare + indSubtotal
+
+    document.getElementById('subtotalShare')!.innerHTML = indSubtotal.toFixed(2)
+    document.getElementById('taxTipShare')!.innerHTML = taxTipShare.toFixed(2)
 
     // Update individual share
     totalShareElement.innerHTML = totalShare.toFixed(2)
