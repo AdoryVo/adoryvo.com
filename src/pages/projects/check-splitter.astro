@@ -18,8 +18,8 @@ import { Eraser } from 'lucide-astro'
   <form id="formA">
     <label class="mb-3 block">
       Individual Subtotal ($) - accepts math expressions
-      <Input type="text" id="indSubtotal" placeholder="ex: 1.00 + 1.50*3" />
-      <span id="exprErrorMsg" class="mt-1 text-red-500"></span>
+      <Input id="indSubtotal" type="text" placeholder="ex: 1.00 + 1.50*3" />
+      <span id="indExprErrorMsg" class="mt-1 text-red-500"></span>
     </label>
 
     <label class="my-3 block">
@@ -34,8 +34,9 @@ import { Eraser } from 'lucide-astro'
     </label>
 
     <label class="my-3 block">
-      Check Tax + Tip ($)
-      <Input type="number" id="tax" placeholder="0.00" step=".01" min="0" />
+      Check Tax + Tip ($) - accepts math expr
+      <Input id="taxTip" type="text" placeholder="0.00" />
+      <span id="taxTipExprErrorMsg" class="mt-1 text-red-500"></span>
     </label>
 
     <div>
@@ -77,11 +78,12 @@ import { Eraser } from 'lucide-astro'
     document.querySelector<HTMLInputElement>('#indSubtotal')
   const subtotalInput =
     document.querySelector<HTMLInputElement>('#checkSubtotal')
-  const taxInput = document.querySelector<HTMLInputElement>('#tax')
+  const taxTipInput = document.querySelector<HTMLInputElement>('#taxTip')
 
   // Elements
   const totalShareElement = document.getElementById('totalShare')
-  const exprErrorMessage = document.getElementById('exprErrorMsg')
+  const indExprErrorMsg = document.getElementById('indExprErrorMsg')
+  const taxTipExprErrorMsg = document.getElementById('taxTipExprErrorMsg')
   const clearBtn = document.getElementById('clearBtn')
 
   /// FUNCTIONS
@@ -103,29 +105,38 @@ import { Eraser } from 'lucide-astro'
       !form ||
       !subtotalInput ||
       !indSubtotalInput ||
-      !taxInput ||
-      !exprErrorMessage ||
+      !taxTipInput ||
+      !indExprErrorMsg ||
+      !taxTipExprErrorMsg ||
       !totalShareElement
     )
       return
 
     let subtotal = parseInput(subtotalInput.value) || 1
-    let tax = parseInput(taxInput.value) || 0
 
     // Calculate individual subtotal
     let indSubtotal: number
     try {
-      const indSubtotalExpr = indSubtotalInput.value
-      indSubtotal = math.evaluate(indSubtotalExpr) || 0
-      exprErrorMessage.innerHTML = ''
+      indSubtotal = math.evaluate(indSubtotalInput.value) || 0
+      indExprErrorMsg.innerHTML = ''
     } catch (error) {
-      exprErrorMessage.innerHTML = '❗ Invalid arithmetic expression!'
+      indExprErrorMsg.innerHTML = '❗ Invalid arithmetic expression!'
+      return
+    }
+
+    // Calculate tax
+    let taxTip: number
+    try {
+      taxTip = math.evaluate(taxTipInput.value) || 0
+      taxTipExprErrorMsg.innerHTML = ''
+    } catch (error) {
+      taxTipExprErrorMsg.innerHTML = '❗ Invalid arithmetic expression!'
       return
     }
 
     // Calculate subshares
-    const taxShare = (indSubtotal / subtotal) * tax
-    let totalShare = taxShare + indSubtotal
+    const taxTipShare = (indSubtotal / subtotal) * taxTip
+    let totalShare = taxTipShare + indSubtotal
 
     // Update individual share
     totalShareElement.innerHTML = totalShare.toFixed(2)
