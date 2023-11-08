@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import Subheading from '../../components/Subheading.astro'
 import Input from '../../components/Input.astro'
 import Button from '../../components/Button.astro'
-import { Eraser } from 'lucide-astro'
+import { Eraser, UserPlus2, X } from 'lucide-astro'
 ---
 
 <Layout
@@ -34,40 +34,102 @@ import { Eraser } from 'lucide-astro'
     </label>
 
     <label class="my-3 block">
-      Check Tax + Tip ($) - accepts math expr
+      Check Tax + Tip ($) - accepts math expr.
       <Input id="taxTip" type="text" placeholder="0.00" />
       <span id="taxTipExprErrorMsg" class="mt-1 text-red-500"></span>
     </label>
 
     <div>
       <Subheading class="mt-5">Result</Subheading>
-       Individual's Total Share: $<span id="totalShare">0.00</span>
-      <br />
-      <i>Breakdown (subtotal + tax/tip):</i>
-       $<span id="subtotalShare">0.00</span> + $<span id="taxTipShare"
+      <span class="me-2">Individual's Total Share:</span>$<span id="totalShare"
         >0.00</span
       >
+      <br />
+      <i class="me-2">Breakdown (subtotal + tax/tip):</i>
+      <span id="breakdown">
+        $<span id="subtotalShare">0.00</span> + $<span id="taxTipShare"
+          >0.00</span
+        >
+      </span>
     </div>
   </form>
 
   <Button
     id="clearBtn"
-    class="mt-3 bg-purple-600 font-bold hover:bg-purple-700"
+    class="me-4 mt-3 bg-purple-600 font-bold hover:bg-purple-700"
     type="button"
   >
     <Eraser class="me-1 inline w-5 align-top" />
      Clear inputs
   </Button>
 
+  <Button
+    id="addBtn"
+    class="mt-3 bg-green-600 font-bold hover:bg-green-700"
+    type="button"
+  >
+    <UserPlus2 class="me-1 inline align-top" />
+     Track in table
+  </Button>
+
+  <hr class="my-4" />
+
+  <!-- Share table -->
+  <Subheading class="mb-2 mt-5">Share table</Subheading>
+  <table class="mb-3 w-full table-auto border-collapse text-sm md:text-base">
+    <thead class="bg-slate-800">
+      <tr>
+        <th class="border-b border-slate-500 px-2 py-3 text-left md:px-4"
+          >Name</th
+        >
+        <th class="border-b border-slate-500 px-2 py-3 text-left md:px-4"
+          >Share</th
+        >
+        <th class="border-b border-slate-500 px-2 py-3 text-left italic md:px-4"
+          >Breakdown</th
+        >
+        <th class="border-b border-slate-500"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Template row -->
+      <tr class="hidden">
+        <td class="border-b border-slate-600 p-2 md:p-4">
+          <input
+            type="text"
+            data-id="name"
+            placeholder="Enter name"
+            class="w-24 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-48 md:text-base"
+          />
+        </td>
+        <td class="border-b border-slate-600 p-2 md:p-4">
+          $<span data-id="share">0.00</span>
+        </td>
+        <td class="border-b border-slate-600 p-2 md:p-4">
+          <span data-id="breakdown"></span>
+        </td>
+        <td class="border-b border-slate-600 pe-2">
+          <div class="flex justify-end">
+            <button data-id="removeBtn" tabindex="-1"
+              ><X class="text-red-200" /></button
+            >
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <details open={true}>
+    <summary class="border-b border-blue-100 font-bold">Details</summary>
+    <b>Sum of shares:</b> $<span id="shareSum">0.00</span>
+  </details>
+
   <hr class="my-4" />
 
   <!-- Upcoming features -->
   <h2 class="text-xl font-semibold text-emerald-300">Upcoming features</h2>
   <ul class="list-inside list-disc">
-    <li>
-      Functionality to store your results to keep track of all of a check's
-      splits
-    </li>
+    <li>Calculating & displaying individuals' subtotal share percentages</li>
   </ul>
 </Layout>
 
@@ -123,9 +185,9 @@ import { Eraser } from 'lucide-astro'
     let indSubtotal: number
     try {
       indSubtotal = math.evaluate(indSubtotalInput.value) || 0
-      indExprErrorMsg.innerHTML = ''
+      indExprErrorMsg.textContent = ''
     } catch (error) {
-      indExprErrorMsg.innerHTML = '❗ Invalid arithmetic expression!'
+      indExprErrorMsg.textContent = '❗ Invalid arithmetic expression!'
       return
     }
 
@@ -133,9 +195,9 @@ import { Eraser } from 'lucide-astro'
     let taxTip: number
     try {
       taxTip = math.evaluate(taxTipInput.value) || 0
-      taxTipExprErrorMsg.innerHTML = ''
+      taxTipExprErrorMsg.textContent = ''
     } catch (error) {
-      taxTipExprErrorMsg.innerHTML = '❗ Invalid arithmetic expression!'
+      taxTipExprErrorMsg.textContent = '❗ Invalid arithmetic expression!'
       return
     }
 
@@ -143,11 +205,12 @@ import { Eraser } from 'lucide-astro'
     const taxTipShare = (indSubtotal / subtotal) * taxTip
     let totalShare = taxTipShare + indSubtotal
 
-    document.getElementById('subtotalShare')!.innerHTML = indSubtotal.toFixed(2)
-    document.getElementById('taxTipShare')!.innerHTML = taxTipShare.toFixed(2)
+    document.getElementById('subtotalShare')!.textContent =
+      indSubtotal.toFixed(2)
+    document.getElementById('taxTipShare')!.textContent = taxTipShare.toFixed(2)
 
     // Update individual share
-    totalShareElement.innerHTML = totalShare.toFixed(2)
+    totalShareElement.textContent = totalShare.toFixed(2)
   }
 
   /// INITIALIZATION
@@ -159,6 +222,47 @@ import { Eraser } from 'lucide-astro'
     inputs.forEach((input) => {
       input.value = ''
     })
-    totalShareElement!.innerHTML = '0.00'
+    totalShareElement!.textContent = '0.00'
+  })
+
+  /// SHARE TABLE
+  const addBtn = document.getElementById('addBtn')
+  const tableBody = document.querySelector('tbody')
+  const shareSumElement = document.getElementById('shareSum')
+  let shareSum = 0
+
+  addBtn?.addEventListener('click', () => {
+    const newRow = tableBody?.firstElementChild?.cloneNode(true)
+    if (!(newRow instanceof HTMLTableRowElement)) {
+      return
+    }
+    newRow.classList.remove('hidden')
+
+    const name = newRow?.querySelector<HTMLInputElement>('[data-id="name"]')
+    name!.value = ''
+
+    const share = newRow?.querySelector('[data-id="share"]')
+    share!.textContent = totalShareElement!.textContent
+    shareSum += Number(share?.textContent)
+
+    const breakdown = newRow?.querySelector('[data-id="breakdown"]')
+    breakdown!.textContent = document.querySelector('#breakdown')!.textContent
+
+    const removeBtn = newRow?.querySelector('[data-id="removeBtn"]')
+    removeBtn?.addEventListener('click', () => {
+      // Recalculate sum of shares
+      shareSum -= Number(share?.textContent)
+
+      tableBody?.removeChild(newRow)
+      shareSumElement!.textContent = shareSum.toFixed(2)
+    })
+
+    // Recalculate sum of shares
+    shareSumElement!.textContent = shareSum.toFixed(2)
+
+    // Add row to table
+    tableBody?.appendChild(newRow)
   })
 </script>
+
+<script></script>
