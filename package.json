@@ -11,20 +11,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^5.0.1",
-    "@astrojs/vercel": "^5.0.2",
+    "@astrojs/react": "^3.0.5",
+    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/vercel": "^5.2.0",
     "@fontsource-variable/roboto-flex": "^5.0.8",
-    "astro": "^3.4.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^3.5.5",
     "clsx": "^2.0.0",
-    "lucide-astro": "^0.291.0",
-    "mathjs": "^12.0.0",
+    "lucide-astro": "^0.292.0",
+    "lucide-react": "^0.292.0",
+    "mathjs": "^12.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.6",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.5"
+    "@tailwindcss/forms": "^0.5.7",
+    "prettier": "^3.1.0",
+    "prettier-plugin-astro": "^0.12.2",
+    "prettier-plugin-tailwindcss": "^0.5.7"
   }
 }
