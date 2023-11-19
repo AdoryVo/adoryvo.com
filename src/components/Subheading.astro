@@ -1,11 +1,8 @@
 ---
-import { classMerge } from '../lib/utils'
+import ReactSubheading from './react/Subheading'
 const props = Astro.props
 ---
 
-<h2
-  class={classMerge('mt-2 text-lg font-semibold text-blue-100', props.class)}
-  {...props}
->
+<ReactSubheading className={props.class} {...props}>
   <slot />
-</h2>
+</ReactSubheading>

@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import RestaurantRouletteContent from '../../components/react/RestaurantRoulette'
+---
+
+<Layout
+  title="restaurant roulette"
+  description="Randomly choose a restaurant to eat at!"
+>
+  <p class="mb-4">
+    A tool for randomly selecting from a list of restaurants you want to eat at!
+  </p>
+
+  <RestaurantRouletteContent client:load />
+
+  <hr class="my-4" />
+
+  <!-- Upcoming features -->
+  <h2 class="text-xl font-semibold text-emerald-300">Upcoming features</h2>
+  <ul class="list-inside list-disc">
+    <li>Using user's location in custom input to suggest nearby restaurants</li>
+    <li>Gather restaurant opening hours from Maps integration</li>
+    <li>Calculating & displaying individuals' subtotal share percentages</li>
+  </ul>
+</Layout>

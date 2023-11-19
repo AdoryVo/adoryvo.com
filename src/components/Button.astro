@@ -1,11 +1,8 @@
 ---
-import { classMerge } from '../lib/utils'
+import ReactButton from './react/Button'
 const props = Astro.props
 ---
 
-<button
-  class={classMerge('rounded px-4 py-2 transition-colors', props.class)}
-  {...props}
->
+<ReactButton className={props.class} {...props}>
   <slot />
-</button>
+</ReactButton>

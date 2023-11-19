@@ -10,7 +10,7 @@ interface Share {
   breakdown: string
 }
 
-export default function CheckSplitterContent() {
+export default function CheckSplitter() {
   const [indSubtotalInput, setIndSubtotalInput] = useState('')
   const [indExprErrorMsg, setIndExprErrorMsg] = useState('')
   const [subtotalInput, setSubtotalInput] = useState('')
