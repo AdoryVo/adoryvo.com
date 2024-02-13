@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import Subheading from './Subheading'
-import Button from './Button'
-import Input from './Input'
+import Subheading from '../Subheading'
+import Button from '../Button'
+import Input from '../Input'
 import { Plus, Dices, X } from 'lucide-react'
 
 export default function RestaurantRoulette() {

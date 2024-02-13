@@ -4,6 +4,7 @@ export interface Project {
   path: string
   details?: string[]
   isMajor?: boolean
+  completedAt?: string
 }
 
 interface Props {
@@ -22,7 +23,8 @@ const { projects } = Astro.props
         target={project.path.startsWith('https') ? '_blank' : '_self'}
       >
         {project.title}
-      </a>
+      </a>{' '}
+      {project.completedAt && `(${project.completedAt})`}
       <ul class="list-inside list-disc pl-8">
         {project.details?.map((detail) => (
           <li>{detail}</li>
