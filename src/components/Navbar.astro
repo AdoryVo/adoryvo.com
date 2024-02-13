@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets'
+import { Github, Twitter, Linkedin } from 'lucide-astro'
+import favicon from '../assets/favicon-64x64.png'
+import { NAV_PAGES } from '../lib/constants'
+import NavbarBioLink from './NavbarBioLink.astro'
+
+const ICON_CLASSES = 'inline w-4 fill-blue-200'
+---
+
+<header class="sticky top-0 w-full border-b-2 border-slate-500 bg-dark">
+  <nav
+    class="container mx-auto flex items-center justify-center py-5 sm:justify-between lg:w-2/3 lg:flex-wrap"
+  >
+    <div class="flex items-center text-sm uppercase">
+      <a
+        href="/"
+        class="mr-2 transition-transform duration-500 hover:scale-90 sm:mr-4"
+      >
+        <img src={favicon.src} class="w-12 md:w-14" alt="logo" />
+      </a>
+      {
+        NAV_PAGES.map((page) => (
+          <div>
+            <a
+              class:list={[
+                'mx-2 text-blue-200 hover:text-blue-100',
+                { 'text-white': Astro.url.pathname.includes(page) },
+              ]}
+              href={`/${page}`}
+            >
+              {page}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <div>
+      <NavbarBioLink url="https://github.com/AdoryVo">
+        <Github class={ICON_CLASSES} />
+      </NavbarBioLink>
+      <NavbarBioLink url="https://www.linkedin.com/in/adoryvo">
+        <Linkedin class={ICON_CLASSES} />
+      </NavbarBioLink>
+      <NavbarBioLink url="https://twitter.com/adoryvo">
+        <Twitter class={ICON_CLASSES} />
+      </NavbarBioLink>
+    </div>
+  </nav>
+</header>

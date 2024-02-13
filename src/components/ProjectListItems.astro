@@ -1,0 +1,35 @@
+---
+export interface Project {
+  title: string
+  path: string
+  details?: string[]
+  isMajor?: boolean
+  completedAt?: string
+}
+
+interface Props {
+  projects: Project[]
+}
+
+const { projects } = Astro.props
+---
+
+{
+  projects.map((project) => (
+    <li>
+      <a
+        href={project.path}
+        class:list={['link-light', { 'font-bold': project.isMajor }]}
+        target={project.path.startsWith('https') ? '_blank' : '_self'}
+      >
+        {project.title}
+      </a>{' '}
+      {project.completedAt && `(${project.completedAt})`}
+      <ul class="list-inside list-disc pl-8">
+        {project.details?.map((detail) => (
+          <li>{detail}</li>
+        ))}
+      </ul>
+    </li>
+  ))
+}

@@ -1,0 +1,77 @@
+---
+import '@fontsource-variable/roboto-flex'
+import { Image } from 'astro:assets'
+import { ViewTransitions } from 'astro:transitions'
+import { GraduationCap, School2 } from 'lucide-astro'
+import meImage from '../assets/me.png'
+import { NAV_PAGES } from '../lib/constants'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Adory's personal website" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>adoryvo.com</title>
+
+    <ViewTransitions />
+  </head>
+  <body>
+    <main class="grid h-screen bg-primary bg-scales">
+      <section
+        class="mx-auto place-self-center rounded-xl border-4 border-dark bg-primary px-4 py-6 text-center font-semibold text-white sm:p-8"
+      >
+        <figure>
+          <img
+            src={meImage.src}
+            alt="Photo of Adory"
+            width="152"
+            height="152"
+            class="mx-auto rounded-full border-4 border-dark shadow-2xl transition-transform duration-500 hover:scale-95"
+          />
+          <figcaption class="mt-3">
+            <div class="text-lg font-semibold text-blue-300">
+              Adory Vo
+            </div>
+            <div class="text-white">
+              Aspiring Software Developer and Educator
+            </div>
+          </figcaption>
+        </figure>
+
+        <div class="mt-2 text-emerald-400">
+          <GraduationCap class="inline align-text-bottom" />
+           Torrey Pines High School '19
+        </div>
+        <div class="text-blue-400">
+          <School2 class="inline align-text-bottom" />
+           UC San Diego '23
+        </div>
+
+        <hr class="my-3 border-dark" />
+        <div class="flex justify-evenly">
+          {
+            NAV_PAGES.map((page) => (
+              <div>
+                <a
+                  class="mx-2 text-blue-200 hover:text-blue-100"
+                  href={`/${page}`}
+                >
+                  {page}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <style>
+      html {
+        font-family: 'Roboto Flex Variable', sans-serif;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import AnagramFinderContent from '../../components/react/projects/AnagramFinder'
+---
+
+<Layout
+  title="anagram finder"
+  description="A tool to find all anagrams & sub-anagrams from a specified letter pool!"
+>
+  <b class="text-green-400">Completed: September 2022</b>
+  <p class="my-4">
+    A tool to find all anagrams & sub-anagrams from a specified letter pool!
+    <br />
+    To filter anagrams by a specific letter sequence, you may specify a template.
+    Underscores will match any letter.
+    <br />
+    <i title="Developed with Michael Huo">- Inspired by Wordscapes</i>
+  </p>
+
+  <AnagramFinderContent client:load />
+</Layout>

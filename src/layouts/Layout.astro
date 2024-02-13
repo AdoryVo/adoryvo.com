@@ -1,0 +1,46 @@
+---
+import '@fontsource-variable/roboto-flex'
+import { ViewTransitions } from 'astro:transitions'
+import '../styles/main.css'
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <ViewTransitions />
+  </head>
+  <body>
+    <div
+      class="grid min-h-screen auto-rows-min content-between bg-primary bg-scales"
+    >
+      <Navbar />
+      <div class="m-5 sm:container sm:mx-auto lg:my-32 lg:w-2/3">
+        <main
+          class="card mx-auto rounded-xl border-4 border-dark bg-primary px-4 py-6 text-white sm:p-8 lg:w-3/4"
+        >
+          <h1 class="mb-3 text-2xl font-semibold text-blue-200">
+            {title}
+          </h1>
+          <slot />
+        </main>
+      </div>
+      <Footer />
+    </div>
+  </body>
+</html>

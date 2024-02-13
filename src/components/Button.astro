@@ -1,0 +1,8 @@
+---
+import ReactButton from './react/Button'
+const props = Astro.props
+---
+
+<ReactButton className={props.class} {...props}>
+  <slot />
+</ReactButton>

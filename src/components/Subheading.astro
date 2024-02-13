@@ -1,0 +1,8 @@
+---
+import ReactSubheading from './react/Subheading'
+const props = Astro.props
+---
+
+<ReactSubheading className={props.class} {...props}>
+  <slot />
+</ReactSubheading>

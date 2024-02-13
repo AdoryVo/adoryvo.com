@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Subheading from '../components/Subheading.astro'
+import type { Project } from '../components/ProjectListItems.astro'
+import ProjectListItems from '../components/ProjectListItems.astro'
+
+const COMPLETE_PROJECTS: Project[] = [
+  { title: 'Anagram Finder', path: '/projects/anagram-finder' },
+  {
+    title: 'Big Two (online card game)',
+    path: 'https://bigtwo.vercel.app',
+    details: [
+      'Over 300 active players a week',
+      'International users from Malaysia, Singapore, Indonesia, etc.',
+    ],
+    isMajor: true,
+  },
+  {
+    title:
+      'Data Science w/ Python: Analyzing the Impact of Weather on Baseball Players',
+    path: 'https://github.com/AdoryVo/baseball-weather-impact/blob/master/FinalProject_group031.ipynb',
+  },
+  {
+    title: 'Freelancing Web Development Projects',
+    path: '/projects/freelancing',
+  },
+  {
+    title: 'Pokésearch',
+    path: 'https://github.com/AdoryVo/pokesearch#-pokesearch',
+  },
+  {
+    title: `Team Ocean's Recipe Manager`,
+    path: 'https://github.com/AdoryVo/team-ocean-recipe-manager#-team-oceans-recipe-manager',
+    details: [
+      'Speech commands for touchless recipe interaction',
+      'Recipe customization, meal planning, & grocery list functionality',
+    ],
+    isMajor: true,
+  },
+  {
+    title: 'UCSD Schedule Calendarizer',
+    path: 'https://adoryvo.github.io/calendarize-webreg/',
+  },
+]
+
+const WIP_PROJECTS: Project[] = [
+  { title: 'Check Splitter', path: '/projects/check-splitter', isMajor: true },
+  {
+    title: 'Create Next App Fork',
+    path: 'https://github.com/AdoryVo/create-next-app',
+  },
+  { title: 'Lists', path: 'https://adoryvo.github.io/lists' },
+  { title: 'Poketeam', path: 'https://github.com/AdoryVo/poketeam' },
+  { title: 'Restaurant Roulette', path: '/projects/restaurant-roulette' },
+  {
+    title: 'Streetspot',
+    path: 'https://streetspot.netlify.app',
+    isMajor: true,
+  },
+]
+---
+
+<Layout title="projects" description="Adory's projects">
+  <p class="mb-6">
+    This page is a work in progress - visit
+    <a
+      class="link-light"
+      href="https://adoryvo.github.io/projects/index.html"
+      target="_blank">my old website</a
+    >
+    to see some older projects.
+  </p>
+
+  <Subheading>Complete</Subheading>
+  <ul class="mb-5 list-inside list-disc">
+    <ProjectListItems projects={COMPLETE_PROJECTS} />
+  </ul>
+
+  <Subheading>Work In Progress</Subheading>
+  <ul class="list-inside list-disc">
+    <ProjectListItems projects={WIP_PROJECTS} />
+  </ul>
+</Layout>

@@ -1,0 +1,35 @@
+---
+import meImage from '../assets/me.png'
+import { Heart } from 'lucide-astro'
+---
+
+<footer class="bottom-0 w-full border-t-2 border-slate-500 bg-dark">
+  <div
+    class="container mx-auto flex flex-wrap items-center justify-between px-6 py-8 text-white lg:w-2/3 lg:px-0"
+  >
+    <div class="flex items-center gap-x-4">
+      <img src={meImage.src} class="w-14 rounded-full" alt="Picture of Adory" />
+
+      <address class="not-italic">
+        <strong>Adory Vo</strong>
+        <br />
+        <a class="link-blue" href="mailto:business@adoryvo.com"
+          >business@adoryvo.com</a
+        >
+      </address>
+    </div>
+
+    <div class="mt-3 sm:text-right lg:mt-0">
+      <div>
+        Made with
+        <Heart
+          class="inline h-4 w-4 animate-heartbeat fill-blue-200 align-text-bottom text-blue-200"
+        />
+         in San Diego.
+      </div>
+      <div>
+        <a href="#" class="link-light">Back to top</a>
+      </div>
+    </div>
+  </div>
+</footer>
