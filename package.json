@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "deps:update": "bunx npm-check-updates -ui",
     "dev": "astro dev",
     "dev:bun": "bunx --bun astro dev",
     "start": "astro dev",
@@ -11,26 +12,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.0.5",
-    "@astrojs/tailwind": "^5.0.2",
-    "@astrojs/vercel": "^5.2.0",
+    "@astrojs/react": "3.0.10",
+    "@astrojs/tailwind": "5.1.0",
+    "@astrojs/vercel": "7.3.0",
     "@fontsource-variable/roboto-flex": "^5.0.8",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "astro": "^3.5.5",
-    "clsx": "^2.0.0",
-    "lucide-astro": "^0.292.0",
-    "lucide-react": "^0.292.0",
-    "mathjs": "^12.1.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "tailwind-merge": "^2.0.0",
-    "tailwindcss": "^3.3.5"
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "astro": "4.3.6",
+    "clsx": "^2.1.0",
+    "lucide-astro": "^0.330.0",
+    "lucide-react": "^0.330.0",
+    "mathjs": "^12.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2",
-    "prettier-plugin-tailwindcss": "^0.5.7"
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.11"
   }
 }
