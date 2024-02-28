@@ -19,4 +19,5 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  site: 'https://www.adoryvo.com',
 })
