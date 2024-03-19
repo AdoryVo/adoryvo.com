@@ -21,7 +21,19 @@ const { title, description } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href=`https://www.adoryvo.com${Astro.url.pathname}` />
     <meta name="generator" content={Astro.generator} />
+
+    <meta name="twitter:title" content="Adory Vo - Official Website" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:site" content="@adoryvo" />
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="Adory Vo - Official Website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+
     <title>{title}</title>
 
     <ViewTransitions />

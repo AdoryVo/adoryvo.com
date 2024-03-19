@@ -1,6 +1,5 @@
 ---
 import '@fontsource-variable/roboto-flex'
-import { Image } from 'astro:assets'
 import { ViewTransitions } from 'astro:transitions'
 import { GraduationCap, School2 } from 'lucide-astro'
 import meImage from '../assets/me.png'
@@ -14,7 +13,34 @@ import { NAV_PAGES } from '../lib/constants'
     <meta name="description" content="Adory's personal website" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href="https://www.adoryvo.com" />
     <meta name="generator" content={Astro.generator} />
+
+    <meta name="twitter:title" content="Adory Vo - Official Website" />
+    <meta
+      name="twitter:description"
+      content="Home Page. Created with Astro, Tailwind, and React."
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://www.adoryvo.com/site-preview.png"
+    />
+    <meta name="twitter:site" content="@adoryvo" />
+    <meta name="twitter:card" content="summary" />
+
+    <meta property="og:title" content="Adory Vo - Official Website" />
+    <meta
+      property="og:description"
+      content="Home Page. Created with Astro, Tailwind, and React."
+    />
+    <meta
+      property="og:image"
+      content="https://www.adoryvo.com/site-preview.png"
+    />
+    <meta property="og:url" content="https://www.adoryvo.com" />
+    <meta property="og:type" content="website" />
+
     <title>adoryvo.com</title>
 
     <ViewTransitions />
@@ -33,9 +59,7 @@ import { NAV_PAGES } from '../lib/constants'
             class="mx-auto rounded-full border-4 border-dark shadow-2xl transition-transform duration-500 hover:scale-95"
           />
           <figcaption class="mt-3">
-            <div class="text-lg font-semibold text-blue-300">
-              Adory Vo
-            </div>
+            <div class="text-lg font-semibold text-blue-300">Adory Vo</div>
             <div class="text-white">
               Aspiring Software Developer and Educator
             </div>
@@ -44,11 +68,11 @@ import { NAV_PAGES } from '../lib/constants'
 
         <div class="mt-2 text-emerald-400">
           <GraduationCap class="inline align-text-bottom" />
-           Torrey Pines High School '19
+          Torrey Pines High School '19
         </div>
         <div class="text-blue-400">
           <School2 class="inline align-text-bottom" />
-           UC San Diego '23
+          UC San Diego '23
         </div>
 
         <hr class="my-3 border-dark" />
