@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 interface Share {
   total: string
   breakdown: string
+  indSubtotal: string
 }
 
 export default function CheckSplitter() {
@@ -43,6 +44,7 @@ export default function CheckSplitter() {
       {
         total: totalShare,
         breakdown: `$${subtotalShare} + $${taxTipShare}`,
+        indSubtotal: `${indSubtotalInput}`,
       },
     ])
   }
@@ -162,7 +164,7 @@ export default function CheckSplitter() {
               Share
             </th>
             <th className="border-b border-slate-500 px-2 py-3 text-left italic md:px-4">
-              Breakdown
+              Breakdown (Subtotal + Tax/Tip)
             </th>
             <th className="border-b border-slate-500"></th>
           </tr>
@@ -182,6 +184,8 @@ export default function CheckSplitter() {
               </td>
               <td className="border-b border-slate-600 p-2 md:p-4">
                 {share.breakdown}
+                <br />
+                <small>Subtotal Share Calculation: {share.indSubtotal}</small>
               </td>
               <td className="border-b border-slate-600 pe-2">
                 <div className="flex justify-end">
