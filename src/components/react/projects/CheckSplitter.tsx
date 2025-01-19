@@ -1,15 +1,18 @@
 import Subheading from '../Subheading'
 import Input from '../Input'
 import Button from '../Button'
-import { Eraser, UserPlus2, X } from 'lucide-react'
+import domtoimage from 'dom-to-image'
+import { Eraser, Image, UserPlus2, X } from 'lucide-react'
 import * as math from 'mathjs'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Share {
   total: string
   breakdown: string
   indSubtotal: string
 }
+
+const GENERATED_IMAGE_SCALE = 3
 
 export default function CheckSplitter() {
   const [indSubtotalInput, setIndSubtotalInput] = useState('')
@@ -23,6 +26,11 @@ export default function CheckSplitter() {
   const [totalShare, setTotalShare] = useState('0.00')
 
   const [shares, setShares] = useState<Share[]>([])
+  let shareSum = math.sum(shares.map((share) => math.number(share.total)))
+
+  const shareTableRef = useRef<HTMLDivElement>(null)
+  const shareTableImgRef = useRef<HTMLImageElement>(null)
+  const [imgGenerated, setImgGenerated] = useState(false)
 
   function parseInput(input: string) {
     if (!math.hasNumericValue(input)) {
@@ -51,6 +59,30 @@ export default function CheckSplitter() {
 
   function untrackShare(index: number) {
     setShares(shares.toSpliced(index, 1))
+  }
+
+  function handleExportImage() {
+    const table = shareTableRef.current
+    if (!table) return
+
+    const style = {
+      transform: `scale(${GENERATED_IMAGE_SCALE})`,
+      transformOrigin: 'top left',
+      width: table.offsetWidth + 'px',
+      height: table.offsetHeight + 'px',
+    }
+
+    const options = {
+      height: table.offsetHeight * GENERATED_IMAGE_SCALE,
+      width: table.offsetWidth * GENERATED_IMAGE_SCALE,
+      quality: 1,
+      style,
+    }
+
+    domtoimage.toPng(table, options).then((url: string) => {
+      if (shareTableImgRef.current) shareTableImgRef.current.src = url
+      setImgGenerated(true)
+    })
   }
 
   useEffect(() => {
@@ -123,7 +155,9 @@ export default function CheckSplitter() {
 
         <div>
           <Subheading className="mt-5">Result</Subheading>
-          <span className="me-2">Individual's Total Share:</span>${totalShare}
+          <span className="me-2">
+            Individual's Total Share:
+          </span>${totalShare}
           <br />
           <i className="me-2">Breakdown (subtotal + tax/tip):</i>
           <span>
@@ -153,62 +187,102 @@ export default function CheckSplitter() {
       <hr className="my-4" />
 
       {/* Share table */}
-      <Subheading className="mb-2 mt-5">Share table</Subheading>
-      <table className="mb-3 w-full table-auto border-collapse text-sm md:text-base">
-        <thead className="bg-slate-800">
-          <tr>
-            <th className="border-b border-slate-500 px-2 py-3 text-left md:px-4">
-              Name
-            </th>
-            <th className="border-b border-slate-500 px-2 py-3 text-left md:px-4">
-              Share
-            </th>
-            <th className="border-b border-slate-500 px-2 py-3 text-left italic md:px-4">
-              Breakdown (Subtotal + Tax/Tip)
-            </th>
-            <th className="border-b border-slate-500"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {shares.map((share, index) => (
-            <tr key={index}>
-              <td className="border-b border-slate-600 p-2 md:p-4">
-                <input
-                  type="text"
-                  placeholder="Enter name"
-                  className="w-24 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-48 md:text-base"
-                />
-              </td>
-              <td className="border-b border-slate-600 p-2 md:p-4">
-                ${share.total}
-              </td>
-              <td className="border-b border-slate-600 p-2 md:p-4">
-                {share.breakdown}
-                <br />
-                <small>Subtotal Share Calculation: {share.indSubtotal}</small>
-              </td>
-              <td className="border-b border-slate-600 pe-2">
-                <div className="flex justify-end">
-                  <button
-                    onClick={() => untrackShare(shares.indexOf(share))}
-                    tabIndex={-1}
-                  >
-                    <X className="text-red-200" />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div ref={shareTableRef} className="bg-primary px-1">
+        <Subheading className="mb-2 mt-0">Share table</Subheading>
+        <input
+          type="text"
+          placeholder="Enter table description"
+          className="w-96 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-96 md:text-base"
+        />
 
-      <details open={true}>
-        <summary className="border-b border-blue-100 font-bold">
-          Details
-        </summary>
-        <b>Sum of shares:</b> $
-        {math.sum(shares.map((share) => math.number(share.total))).toFixed(2)}
-      </details>
+        <table className="mb-3 w-full table-auto border-collapse text-sm md:text-base">
+          <thead className="bg-slate-800">
+            <tr>
+              <th className="border-b border-slate-500 px-2 py-3 text-left md:px-4">
+                Name
+              </th>
+              <th className="border-b border-slate-500 px-2 py-3 text-left md:px-4">
+                Share
+              </th>
+              <th className="border-b border-slate-500 px-2 py-3 text-left italic md:px-4">
+                Breakdown (Subtotal + Tax/Tip)
+              </th>
+              <th className="border-b border-slate-500"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {shares.map((share, index) => (
+              <tr key={index}>
+                <td className="border-b border-slate-600 p-2 md:p-4">
+                  <input
+                    type="text"
+                    placeholder="Enter name"
+                    className="w-24 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-48 md:text-base"
+                  />
+                </td>
+                <td className="border-b border-slate-600 p-2 md:p-4">
+                  ${share.total}
+                  <br />
+                  <small>
+                    (
+                    {((parseFloat(share.total) * 100) / shareSum || 0).toFixed(
+                      1
+                    )}
+                    % of total)
+                  </small>
+                </td>
+                <td className="border-b border-slate-600 p-2 md:p-4">
+                  {share.breakdown}
+                  <br />
+                  <small>Subtotal Share Calculation: {share.indSubtotal}</small>
+                </td>
+                <td className="border-b border-slate-600 pe-2">
+                  <div className="flex justify-end">
+                    <button
+                      onClick={() => untrackShare(shares.indexOf(share))}
+                      tabIndex={-1}
+                    >
+                      <X className="text-red-200" />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <details open={true}>
+          <summary className="border-b border-blue-100 font-bold">
+            Details
+          </summary>
+          <b>Sum of shares:</b> ${shareSum.toFixed(2)}
+          <br />
+          <b>
+            Check subtotal:
+          </b> ${parseFloat(subtotalInput || '0.00').toFixed(2)}
+          <br />
+          <b>
+            Check tax/tip:
+          </b> ${parseFloat(taxTipInput || '0.00').toFixed(2)}
+        </details>
+      </div>
+
+      <Button
+        className="mt-5 bg-teal-500 font-bold transition-opacity disabled:opacity-75"
+        disabled={shares.length == 0}
+        onClick={handleExportImage}
+      >
+        <Image className="me-1 inline align-top" /> Generate table as image
+      </Button>
+
+      <figure
+        className={`mt-5 border-4 border-gray-300 ${!imgGenerated ? 'hidden' : ''}`}
+      >
+        <img ref={shareTableImgRef} src="" alt="" />
+        <figcaption className="bg-dark text-center italic">
+          Table image above, right-click or long-press to save or share!
+        </figcaption>
+      </figure>
     </>
   )
 }

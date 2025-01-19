@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Subheading from '../components/Subheading.astro'
 import type { Project } from '../components/ProjectListItems.astro'
 import ProjectListItems from '../components/ProjectListItems.astro'
+import Feedback from '../components/Feedback.astro'
 
 const COMPLETE_PROJECTS: Project[] = [
   { title: 'Anagram Finder', path: '/projects/anagram-finder' },
@@ -80,4 +81,8 @@ const WIP_PROJECTS: Project[] = [
   <ul class="list-inside list-disc">
     <ProjectListItems projects={WIP_PROJECTS} />
   </ul>
+
+  <hr class="my-4" />
+
+  <Feedback />
 </Layout>

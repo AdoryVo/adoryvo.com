@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import CheckSplitterContent from '../../components/react/projects/CheckSplitter'
+import Feedback from '../../components/Feedback.astro'
 ---
 
 <Layout
@@ -8,17 +9,21 @@ import CheckSplitterContent from '../../components/react/projects/CheckSplitter'
   description="Calculate how to split your checks!"
 >
   <p class="mb-4">
-    A tool for calculating how much individuals pay (including tax & tip!) when
-    splitting a check!
+    A tool for calculating how much individuals pay (including tax & tip!) to
+    split a check!
   </p>
 
   <CheckSplitterContent client:load />
 
   <hr class="my-4" />
 
+  <Feedback />
+
+  <hr class="my-4" />
+
   <!-- Upcoming features -->
   <h2 class="text-xl font-semibold text-emerald-300">Upcoming features</h2>
   <ul class="list-inside list-disc">
-    <li>Calculating & displaying individuals' subtotal share percentages</li>
+    <li>No ideas right now!</li>
   </ul>
 </Layout>
