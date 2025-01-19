@@ -155,9 +155,7 @@ export default function CheckSplitter() {
 
         <div>
           <Subheading className="mt-5">Result</Subheading>
-          <span className="me-2">
-            Individual's Total Share:
-          </span>${totalShare}
+          <span className="me-2">Individual's Total Share:</span>${totalShare}
           <br />
           <i className="me-2">Breakdown (subtotal + tax/tip):</i>
           <span>
@@ -165,7 +163,6 @@ export default function CheckSplitter() {
           </span>
         </div>
       </form>
-
       <Button
         onClick={clearInputs}
         className="me-4 mt-3 bg-purple-600 font-bold hover:bg-purple-700"
@@ -174,7 +171,6 @@ export default function CheckSplitter() {
         <Eraser className="me-1 inline w-5 align-top" />
         Clear inputs
       </Button>
-
       <Button
         onClick={trackShare}
         className="mt-3 bg-green-600 font-bold hover:bg-green-700"
@@ -183,11 +179,9 @@ export default function CheckSplitter() {
         <UserPlus2 className="me-1 inline align-top" />
         Track in table
       </Button>
-
       <hr className="my-4" />
-
       {/* Share table */}
-      <div ref={shareTableRef} className="bg-primary px-1">
+      <div ref={shareTableRef} className="relative bg-primary px-1">
         <Subheading className="mb-2 mt-0">Share table</Subheading>
         <input
           type="text"
@@ -257,14 +251,15 @@ export default function CheckSplitter() {
           </summary>
           <b>Sum of shares:</b> ${shareSum.toFixed(2)}
           <br />
-          <b>
-            Check subtotal:
-          </b> ${parseFloat(subtotalInput || '0.00').toFixed(2)}
+          <b>Check subtotal:</b> $
+          {parseFloat(subtotalInput || '0.00').toFixed(2)}
           <br />
-          <b>
-            Check tax/tip:
-          </b> ${parseFloat(taxTipInput || '0.00').toFixed(2)}
+          <b>Check tax/tip:</b> ${parseFloat(taxTipInput || '0.00').toFixed(2)}
         </details>
+
+        <div className="absolute bottom-0 right-1 text-gray-300">
+          adoryvo.com/projects/check-splitter
+        </div>
       </div>
 
       <Button
@@ -274,6 +269,9 @@ export default function CheckSplitter() {
       >
         <Image className="me-1 inline align-top" /> Generate table as image
       </Button>
+      <span className={`ml-5 ${!imgGenerated ? 'hidden' : ''}`}>
+        Your table image has been generated below!
+      </span>
 
       <figure
         className={`mt-5 border-4 border-gray-300 ${!imgGenerated ? 'hidden' : ''}`}
