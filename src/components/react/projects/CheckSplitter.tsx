@@ -257,9 +257,8 @@ export default function CheckSplitter() {
           <b>Check tax/tip:</b> ${parseFloat(taxTipInput || '0.00').toFixed(2)}
         </details>
 
-        <div className="absolute bottom-0 right-1 text-gray-300">
-          adoryvo.com/projects/check-splitter
-        </div>
+        {/* TODO: Fix responsive watermark */}
+        <div className="absolute bottom-0 right-1 text-gray-300"></div>
       </div>
 
       <Button
