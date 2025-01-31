@@ -7,9 +7,11 @@ import * as math from 'mathjs'
 import { useEffect, useRef, useState } from 'react'
 
 interface Share {
+  subtotal: string
+  taxTip: string
   total: string
   breakdown: string
-  indSubtotal: string
+  indSubtotalInput: string
 }
 
 const GENERATED_IMAGE_SCALE = 3
@@ -18,15 +20,19 @@ export default function CheckSplitter() {
   const [indSubtotalInput, setIndSubtotalInput] = useState('')
   const [indExprErrorMsg, setIndExprErrorMsg] = useState('')
   const [subtotalInput, setSubtotalInput] = useState('')
-  const [taxTipInput, setTaxTipInput] = useState('')
-  const [taxTipExprErrorMsg, setTaxTipExprErrorMsg] = useState('')
+  const [totalInput, setTotalInput] = useState('')
 
   const [subtotalShare, setSubtotalShare] = useState('0.00')
   const [taxTipShare, setTaxTipShare] = useState('0.00')
   const [totalShare, setTotalShare] = useState('0.00')
 
   const [shares, setShares] = useState<Share[]>([])
-  let shareSum = math.sum(shares.map((share) => math.number(share.total)))
+
+  let calcSubtotal = math.sum(
+    shares.map((share) => math.number(share.subtotal))
+  )
+  let calcTaxTip = math.sum(shares.map((share) => math.number(share.taxTip)))
+  let calcTotal = math.sum(shares.map((share) => math.number(share.total)))
 
   const shareTableRef = useRef<HTMLDivElement>(null)
   const shareTableImgRef = useRef<HTMLImageElement>(null)
@@ -43,16 +49,17 @@ export default function CheckSplitter() {
   function clearInputs() {
     setIndSubtotalInput('')
     setSubtotalInput('')
-    setTaxTipInput('')
   }
 
   function trackShare() {
     setShares([
       ...shares,
       {
+        subtotal: subtotalShare,
+        taxTip: taxTipShare,
         total: totalShare,
         breakdown: `$${subtotalShare} + $${taxTipShare}`,
-        indSubtotal: `${indSubtotalInput}`,
+        indSubtotalInput: `${indSubtotalInput}`,
       },
     ])
   }
@@ -87,6 +94,7 @@ export default function CheckSplitter() {
 
   useEffect(() => {
     let subtotal = parseInput(subtotalInput) || 1
+    let total = parseInput(totalInput) || 1
 
     // Calculate individual's subtotal
     let indSubtotal: number
@@ -98,23 +106,13 @@ export default function CheckSplitter() {
       return
     }
 
-    // Calculate tax + tip
-    let taxTip: number
-    try {
-      taxTip = math.evaluate(taxTipInput) || 0
-      setTaxTipExprErrorMsg('')
-    } catch (error) {
-      setTaxTipExprErrorMsg('❗ Invalid arithmetic expression!')
-      return
-    }
-
-    const taxTipShareVal = (indSubtotal / subtotal) * taxTip
-    const totalShare = taxTipShareVal + indSubtotal
+    const totalShare = (indSubtotal / subtotal) * total
+    const taxTipShareVal = +totalShare.toFixed(2) - indSubtotal
 
     setSubtotalShare(indSubtotal.toFixed(2))
     setTaxTipShare(taxTipShareVal.toFixed(2))
     setTotalShare(totalShare.toFixed(2))
-  }, [indSubtotalInput, subtotalInput, taxTipInput])
+  }, [indSubtotalInput, subtotalInput, totalInput])
 
   return (
     <>
@@ -143,14 +141,23 @@ export default function CheckSplitter() {
         </label>
 
         <label className="my-3 block">
-          Check Tax + Tip ($) - accepts math expr.
+          Check Total ($)
           <Input
-            type="text"
-            value={taxTipInput}
-            onChange={(e) => setTaxTipInput(e.target.value)}
+            type="number"
+            value={totalInput}
+            onChange={(e) => setTotalInput(e.target.value)}
             placeholder="0.00"
+            step=".01"
+            min="0"
           />
-          <span className="mt-1 text-red-500">{taxTipExprErrorMsg}</span>
+          {subtotalInput && totalInput && (
+            <span className="mt-1 text-sm text-gray-200">
+              - Calculated tax/tip: $
+              {(
+                (parseInput(totalInput) || 1) - (parseInput(subtotalInput) || 1)
+              ).toFixed(2)}
+            </span>
+          )}
         </label>
 
         <div>
@@ -219,7 +226,7 @@ export default function CheckSplitter() {
                   <br />
                   <small>
                     (
-                    {((parseFloat(share.total) * 100) / shareSum || 0).toFixed(
+                    {((parseFloat(share.total) * 100) / calcTotal || 0).toFixed(
                       1
                     )}
                     % of total)
@@ -228,7 +235,9 @@ export default function CheckSplitter() {
                 <td className="border-b border-slate-600 p-2 md:p-4">
                   {share.breakdown}
                   <br />
-                  <small>Subtotal Share Calculation: {share.indSubtotal}</small>
+                  <small>
+                    Subtotal Share Calculation: {share.indSubtotalInput}
+                  </small>
                 </td>
                 <td className="border-b border-slate-600 pe-2">
                   <div className="flex justify-end">
@@ -249,12 +258,11 @@ export default function CheckSplitter() {
           <summary className="border-b border-blue-100 font-bold">
             Details
           </summary>
-          <b>Sum of shares:</b> ${shareSum.toFixed(2)}
+          <b>Calculated total:</b> ${calcTotal.toFixed(2)}
           <br />
-          <b>Check subtotal:</b> $
-          {parseFloat(subtotalInput || '0.00').toFixed(2)}
+          <b>Calculated subtotal:</b> ${calcSubtotal.toFixed(2)}
           <br />
-          <b>Check tax/tip:</b> ${parseFloat(taxTipInput || '0.00').toFixed(2)}
+          <b>Calculated tax/tip:</b> ${calcTaxTip.toFixed(2)}
         </details>
 
         <div className="absolute bottom-0 right-1 text-gray-300">

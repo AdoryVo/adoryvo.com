@@ -11,6 +11,8 @@ import Feedback from '../../components/Feedback.astro'
   <p class="mb-4">
     A tool for calculating how much individuals pay (including tax & tip!) to
     split a check!
+    <br />
+    Note: Tax & tip is calculated by using difference between check total and subtotal.
   </p>
 
   <CheckSplitterContent client:load />
@@ -24,6 +26,6 @@ import Feedback from '../../components/Feedback.astro'
   <!-- Upcoming features -->
   <h2 class="text-xl font-semibold text-emerald-300">Upcoming features</h2>
   <ul class="list-inside list-disc">
-    <li>No ideas right now!</li>
+    <li>Add OCR for receipt upload to select items to split</li>
   </ul>
 </Layout>
