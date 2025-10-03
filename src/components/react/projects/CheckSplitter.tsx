@@ -1,7 +1,7 @@
 import Subheading from '../Subheading'
 import Input from '../Input'
 import Button from '../Button'
-import domtoimage from 'dom-to-image'
+import { snapdom } from '@zumer/snapdom'
 import { Eraser, Image, UserPlus2, X } from 'lucide-react'
 import * as math from 'mathjs'
 import { useEffect, useRef, useState } from 'react'
@@ -72,22 +72,15 @@ export default function CheckSplitter() {
     const table = shareTableRef.current
     if (!table) return
 
-    const style = {
-      transform: `scale(${GENERATED_IMAGE_SCALE})`,
-      transformOrigin: 'top left',
-      width: table.offsetWidth + 'px',
-      height: table.offsetHeight + 'px',
-    }
-
     const options = {
-      height: table.offsetHeight * GENERATED_IMAGE_SCALE,
       width: table.offsetWidth * GENERATED_IMAGE_SCALE,
-      quality: 1,
-      style,
+      height: table.offsetHeight * GENERATED_IMAGE_SCALE,
+      scale: GENERATED_IMAGE_SCALE,
+      embedFonts: true,
     }
 
-    domtoimage.toPng(table, options).then((url: string) => {
-      if (shareTableImgRef.current) shareTableImgRef.current.src = url
+    snapdom.toPng(table, options).then((img) => {
+      if (shareTableImgRef.current) shareTableImgRef.current.src = img.src
       setImgGenerated(true)
     })
   }
