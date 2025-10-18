@@ -1,0 +1,32 @@
+---
+interface Props {
+  tag: string
+}
+
+const { tag } = Astro.props
+
+var style
+switch (tag) {
+  case 'advice':
+    style = 'bg-green-900 text-green-200'
+    break
+  case 'gaming':
+    style = 'bg-pink-900 text-pink-200'
+    break
+  case 'guide':
+    style = 'bg-blue-900 text-blue-200'
+    break
+  case 'opinion':
+    style = 'bg-yellow-900 text-yellow-200'
+    break
+  case 'software':
+    style = 'bg-violet-900 text-violet-200'
+    break
+
+  default:
+    style = 'bg-gray-800 text-slate-200'
+    break
+}
+---
+
+<div class={`inline rounded py-1 px-2 font-bold ${style} text-xs `}>{tag}</div>

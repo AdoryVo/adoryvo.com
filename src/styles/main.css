@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 
@@ -8,15 +8,15 @@ html {
 }
 
 ::selection {
-	background: rgba(255, 255, 255, 0.1);
-	color: theme('colors.sky.100');
-	text-shadow: 0.5px 1px theme('colors.blue.400');
+  background: rgba(255, 255, 255, 0.1);
+  color: theme('colors.sky.100');
+  text-shadow: 0.5px 1px theme('colors.blue.400');
 }
 
 input::selection {
-	background: rgba(0, 0, 0, 0.5);
-	color: theme('colors.sky.100');
-	text-shadow: 0.5px 1px theme('colors.blue.400');
+  background: rgba(0, 0, 0, 0.5);
+  color: theme('colors.sky.100');
+  text-shadow: 0.5px 1px theme('colors.blue.400');
 }
 
 .bg-scales {
@@ -30,6 +30,10 @@ input::selection {
 
   .link-light {
     @apply text-blue-300 hover:text-blue-400;
+  }
+
+  .link-lighter {
+    @apply text-blue-200 hover:text-blue-300;
   }
 }
 
@@ -47,4 +51,8 @@ input::selection {
       transform: scale(1.3);
     }
   }
+}
+
+@utility prose {
+  --tw-prose-invert-headings: var(--color-blue-100);
 }

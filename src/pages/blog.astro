@@ -1,13 +1,66 @@
 ---
+import { type BlogPost } from '../lib/constants'
+import TagList from '../components/TagList.astro'
+import DateText from '../components/DateText.astro'
 import Layout from '../layouts/Layout.astro'
+const blogPosts = Object.values<BlogPost>(
+  import.meta.glob('./blog/*.mdx', { eager: true })
+).sort(
+  // Sort from latest to earliest.
+  (postA, postB) =>
+    (new Date(postB.frontmatter.publishedAt).getTime() || 0) -
+    new Date(postA.frontmatter.publishedAt).getTime()
+)
+const publishYears = Array.from(
+  new Set(
+    blogPosts.map((post) =>
+      new Date(post.frontmatter.publishedAt).getUTCFullYear()
+    )
+  )
+)
 ---
 
 <Layout title="blog" description="Adory's blog posts">
   <p class="mb-4">
-    This page is still a work in progress. Built with
+    Musings and opinions. Built with
     <a
-      class="link-blue"
-      href="https://docs.astro.build/en/guides/markdown-content/">Astro & MDX</a
+      class="link-light"
+      href="https://docs.astro.build/en/guides/integrations-guide/mdx"
+      >Astro & MDX</a
     >.
   </p>
+  <ul class="space-y-4">
+    {
+      publishYears.map((publishYear) => (
+        <li>
+          <h2 class="mb-2 text-xl font-bold text-blue-300">{publishYear}</h2>
+          <ul class="space-y-2">
+            {blogPosts
+              .filter(
+                (post) =>
+                  new Date(post.frontmatter.publishedAt).getUTCFullYear() ==
+                    publishYear ||
+                  (publishYear == new Date().getUTCFullYear() &&
+                    isNaN(Date.parse(post.frontmatter.publishedAt)))
+              )
+              .map((post) => (
+                <li class="rounded border-4 border-slate-600 p-4">
+                  <h3 class="text-lg font-semibold text-blue-200">
+                    <a href={post.url} class="link-lighter">
+                      {post.frontmatter.title}
+                    </a>
+                  </h3>
+                  <p class="my-2">
+                    {post.frontmatter.preview}
+                    ...
+                  </p>
+                  <DateText date={post.frontmatter.publishedAt} />
+                  <TagList tags={post.frontmatter.tags} />
+                </li>
+              ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>

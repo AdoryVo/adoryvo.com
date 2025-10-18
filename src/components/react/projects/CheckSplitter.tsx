@@ -186,7 +186,7 @@ export default function CheckSplitter() {
         <input
           type="text"
           placeholder="Enter table description"
-          className="w-96 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-96 md:text-base"
+          className="w-96 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue/200 md:w-96 md:text-base"
         />
 
         <table className="mb-3 w-full table-auto border-collapse text-sm md:text-base">
@@ -211,7 +211,7 @@ export default function CheckSplitter() {
                   <input
                     type="text"
                     placeholder="Enter name"
-                    className="w-24 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue-200 md:w-48 md:text-base"
+                    className="w-24 border-0 bg-primary p-0 text-sm text-white placeholder:text-slate-400 focus:ring-blue/200 md:w-48 md:text-base"
                   />
                 </td>
                 <td className="border-b border-slate-600 p-2 md:p-4">

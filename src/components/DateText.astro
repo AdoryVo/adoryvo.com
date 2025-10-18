@@ -1,0 +1,11 @@
+---
+import { isoDateToString } from '../lib/utils'
+
+interface Props {
+  date: string
+}
+
+const { date } = Astro.props
+---
+
+<span class="text-sm text-teal-100">{isoDateToString(date)}</span>

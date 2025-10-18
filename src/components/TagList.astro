@@ -1,0 +1,13 @@
+---
+import Tag from '../components/Tag.astro'
+
+interface Props {
+  tags: string[]
+}
+
+const { tags } = Astro.props
+---
+
+<div class="mt-3 space-x-2">
+  {tags.sort().map((tag) => <Tag tag={tag} />)}
+</div>

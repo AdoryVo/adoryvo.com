@@ -1,0 +1,92 @@
+---
+# Must match BlogPost interface in lib/constants.
+title: what defines a proficient software engineer?
+preview: I've been thinking a lot about what differentiates software engineers of different levels and I've come up with three aspects to define a proficient software engineer! 
+publishedAt: 2025-10-17
+tags: ["advice", "opinion", "software"]
+---
+
+import DateText from '../../components/DateText.astro'
+import TagList from '../../components/TagList.astro'
+import Layout from '../../layouts/Layout.astro'
+
+<Layout
+  title={frontmatter.title}
+  description={`blog - ${frontmatter.title}`}
+  mainClass="prose dark:prose-invert max-w-2/3"
+  headingClass="mb-0"
+>
+<DateText date={frontmatter.publishedAt} />
+<TagList tags={frontmatter.tags} />
+
+{frontmatter.preview} I figure these aspects may be applicable to other disciplines and professions as well.
+
+Note: This is written purely based off of my limited amount of experience, no particular reference or inspiration.
+
+### Philosophy
+
+Philosophy, perspective, and mindset dictate the limitations of your dedication, time, and effort towards a solution.
+
+Even if your knowledge and skills are refined, if you do not approach problems with proper consideration, your skills will be wasted on an improper solution - one that may be inefficient, short-sighted (technical debt), or inelegant.
+
+One philosophy that I strongly believe in and assume when starting any task is: **“The ideal solution is possible and feasible.”** The best solutions can only be realized if the implementer dares to attempt them in the first place. The context to confirm the feasibility of a solution is only able to be fully gathered if the author fully entertains the idea enough to dig into all possible methods.
+
+Sometimes, a working solution can only ever exist if you persevere and believe where others may give up.
+
+**Philosophy helps shape the memory & space of your mind to push you towards your ideal solution.**
+
+#### Advice
+
+- Know that your potential is limited by your mindset, not your skills.
+- Work iteratively - recognize and appreciate your small victories and set yourself subtasks to work towards (commits, [issues](https://github.com/AdoryVo/big-two/issues), PR’s, etc.).
+
+### Vision
+
+Vision, design, and scope dictate the conscious possibilities of your solution.
+
+In order for your solution to be practical and adequate, you must have the **vision** to identify the ideal solution. If you do not have enough knowledge/experience/intuition of the patterns and structures that exist in the world to fit together into a solution, the space of solutions that seems ideal to you may not include the actual ideal or reasonable solutions.
+
+Data structures, networking, API design, and basic algorithms must be known to identify which methods are appropriate for which use cases. If you use a list for everything because you do not know of dictionaries and sets, you will never find more elegant solutions.
+
+**Vision helps shape how far your "ideal solution" can reach.**
+
+#### Advice
+
+- Build a foundation. (https://roadmap.sh/computer-science)
+    - Learn computer science theory
+        - Data structures
+        - Functional programming
+        - Object-oriented programming
+        - Time complexity
+    - Learn computer science architecture
+        - Operating systems (Linux, permissions, processes)
+        - Internet Networking (HTTP, Requests & Responses, Async)
+        - Internet Design (API design, authentication, UI/UX)
+    - Learn computer science solutions
+        - Cloud (Storage, servers, pipelines)
+        - Virtual machines (Docker)
+        - Machine learning & AI
+- Learn from the world.
+    - Find examples - search for style guides and code bases written by experts and qualified & widely-used sources.
+    - Discuss & ask questions with your mentors and peers - everyone has different ideas of ideal solutions and implementations. Expose yourself to what you tend to overlook.
+
+### Mastery
+
+Mastery, skill, and ability dictate the execution and implementation of your solution.
+
+In order for you to maintain that a solution is possible and feasible, you must have **mastery** and confidence in your ability to successfully implement the solution. Especially if it is a problem that you have not done before, you must have the skills to overcome the doubts, voids of information, and confusions that you face when exploring how to implement your solution. It is likely that others have given up too early when faced with these, leaving you the sole developer that may actually succeed. You must be comfortable with reading documentation, digging through rabbit holes of source code and dependencies, and debugging/testing every case that has a sliver of hope towards your solution.
+
+At the same time, you cannot make assumptions about your mastery - it would damage your growth to continually assume that your previous implementations and knowledge are correct. This is because the more experience you gather, the narrower your mind will continue downwards when considering your options. If you repetitively use one library and begin to assume it is the best option for a task, you will stop searching for other libraries although they may begin to surpass your preference.
+
+**Mastery helps shape the "possibility and feasibility" of reaching your ideal solution.**
+
+#### Advice
+
+- Master your tools.
+    - Learn and use industry standards: Linux terminal, Git version control, language IDE extensions, use industry standard dependencies (numpy, pandas), linters & formatters - gain autonomy & respect in your day job.
+    - Constantly learn keyboard shortcuts and application features - move quickly to put your ideas into action.
+    - Integrate your environment - use applications, bookmarks, etc. to move between relevant sources of information quickly.
+- Practice.
+    - Don't limit yourself to the options of bad code - get in the habit of writing things yourself to best fit your case.
+    - Keep a small list of skills & learnings to consistently keep in mind and use before you move onto a new list. Prevent yourself from being mindless, be uncomfortable with new habits.
+</Layout>

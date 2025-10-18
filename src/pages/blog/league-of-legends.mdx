@@ -1,0 +1,31 @@
+---
+# Must match BlogPost interface in lib/constants.
+title: appearances - social influence through the lens of league of legends
+preview: "One of the main skill expression concepts I like to think of [in League of Legends] is “appearances”: making your character move and behave in a certain way to influence the reactions, thoughts, and behavior of other players."
+publishedAt: 2024-06-14
+tags: ["gaming", "opinion"]
+---
+
+import DateText from '../../components/DateText.astro'
+import TagList from '../../components/TagList.astro'
+import Layout from '../../layouts/Layout.astro'
+
+<Layout
+  title={frontmatter.title}
+  description={`blog - ${frontmatter.title}`}
+  mainClass="prose dark:prose-invert max-w-2/3"
+  headingClass="mb-0"
+>
+<DateText date={frontmatter.publishedAt} />
+<TagList tags={frontmatter.tags} />
+
+One reason that League has always remained particularly immersive and interesting to me is that it has so many methods and nuances for skill expression.
+{frontmatter.preview} 
+
+For instance, if you want to bait the enemy to attack or overextend, you can make yourself seem vulnerable and punishable. You can do this in several ways: 1) playing recklessly, pretending to disrespect the enemy's range & power by standing at a seemingly unsafe distance or 2) playing avoidant, pretending to not impose any risks or have the tools to match the enemy's power. In this example, you can influence the enemy's conscious thought processes, approach, and impressions.
+
+At an even lower level, with enough practice, you can go so far as to influence the way that people move their mouse towards your character. The easiest example of this is aiming abilities. Landing projectile hits as well as dodging incoming damage are extremely valuable mechanical skills to learn - they give you more options to punish enemy positioning and find outplay potential. The tiniest fluctuations in a character's movements and their subconscious habits are picked up by your own subconscious and by the time it comes to make a hit or dodge situation, it all coalesces into the direction you decide to aim or move. And throughout one game, this culmination of factoring in the enemy's unique champion, your perceived size of their character and their abilities, as well as the analysis of the player piloting them, are modified and tested a thousand times over and over with each interaction.
+
+And now apply this logic to other things, namely social interactions and projected appearances. Regardless of your intentions, your subconscious has a tendency to make yourself appear a certain way in different scenarios. Likewise, your subconscious evaluates the tendencies and a million facets of others' appearances to form your impression of a person. At every moment, these silhouettes shift and lose/gain clarity with time, information, and experience.
+
+</Layout>

@@ -1,0 +1,24 @@
+---
+# Must match BlogPost interface in lib/constants.
+title: tips for efficient software development & computer literacy
+preview: "I truly believe anyone can become more proficient at using a computer than the average computer science major without much effort."
+publishedAt: Work in progress
+tags: ["guide", "opinion", "software"]
+---
+
+import DateText from '../../components/DateText.astro'
+import TagList from '../../components/TagList.astro'
+import Layout from '../../layouts/Layout.astro'
+
+<Layout
+  title={frontmatter.title}
+  description={`blog - ${frontmatter.title}`}
+  mainClass="prose dark:prose-invert max-w-2/3"
+  headingClass="mb-0"
+>
+<DateText date={frontmatter.publishedAt} />
+<TagList tags={frontmatter.tags} />
+
+{frontmatter.preview} [WIP]
+
+</Layout>

@@ -9,9 +9,10 @@ interface Props {
   title: string
   description: string
   mainClass?: string
+  headingClass?: string
 }
 
-const { title, description, mainClass } = Astro.props
+const { title, description, mainClass, headingClass } = Astro.props
 ---
 
 <!doctype html>
@@ -48,7 +49,7 @@ const { title, description, mainClass } = Astro.props
         <main
           class={`card mx-auto rounded-xl border-4 border-dark bg-primary px-4 py-6 text-white sm:p-8 lg:w-3/4 ${mainClass}`}
         >
-          <h1 class="mb-3 text-2xl font-semibold text-blue-200">
+          <h1 class={`mb-3 text-2xl font-semibold text-blue-200 ${headingClass}`}>
             {title}
           </h1>
           <slot />
