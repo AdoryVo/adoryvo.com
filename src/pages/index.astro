@@ -1,7 +1,8 @@
 ---
 import '@fontsource-variable/roboto-flex'
-import { ViewTransitions } from 'astro:transitions'
-import { GraduationCap, School2 } from 'lucide-astro'
+import { ClientRouter } from 'astro:transitions'
+import GraduationCap from '@lucide/astro/icons/graduation-cap'
+import University from '@lucide/astro/icons/university'
 import meImage from '../assets/me.jpg'
 import { NAV_PAGES } from '../lib/constants'
 ---
@@ -43,7 +44,7 @@ import { NAV_PAGES } from '../lib/constants'
 
     <title>adoryvo.com</title>
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <main class="grid h-screen bg-primary bg-scales">
@@ -71,7 +72,7 @@ import { NAV_PAGES } from '../lib/constants'
           Torrey Pines High School '19
         </div>
         <div class="text-blue-400">
-          <School2 class="inline align-text-bottom" />
+          <University class="inline align-text-bottom" />
           UC San Diego '23
         </div>
 

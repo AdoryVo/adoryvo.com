@@ -1,6 +1,6 @@
 ---
 import '@fontsource-variable/roboto-flex'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import '../styles/main.css'
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
@@ -8,9 +8,10 @@ import Footer from '../components/Footer.astro'
 interface Props {
   title: string
   description: string
+  mainClass?: string
 }
 
-const { title, description } = Astro.props
+const { title, description, mainClass } = Astro.props
 ---
 
 <!doctype html>
@@ -36,7 +37,7 @@ const { title, description } = Astro.props
 
     <title>{title}</title>
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <div
@@ -45,7 +46,7 @@ const { title, description } = Astro.props
       <Navbar />
       <div class="m-5 sm:container sm:mx-auto lg:my-32 lg:w-2/3">
         <main
-          class="card mx-auto rounded-xl border-4 border-dark bg-primary px-4 py-6 text-white sm:p-8 lg:w-3/4"
+          class={`card mx-auto rounded-xl border-4 border-dark bg-primary px-4 py-6 text-white sm:p-8 lg:w-3/4 ${mainClass}`}
         >
           <h1 class="mb-3 text-2xl font-semibold text-blue-200">
             {title}
