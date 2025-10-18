@@ -8,7 +8,7 @@ export default function Button({
 }: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
-      className={classMerge('rounded px-4 py-2 transition-colors', className)}
+      className={classMerge('rounded-sm px-4 py-2 transition-colors', className)}
       {...props}
     >
       {children}

@@ -87,7 +87,7 @@ export default function AnagramFinder() {
             type="checkbox"
             checked={matchLength}
             onChange={(e) => setMatchLength(e.target.checked)}
-            className="me-2 rounded"
+            className="me-2 rounded-sm"
           />
           Match Length
         </label>

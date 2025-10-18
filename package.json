@@ -15,10 +15,10 @@
     "@astrojs/mdx": "^4.3.7",
     "@astrojs/react": "3.0.10",
     "@astrojs/sitemap": "^3.1.1",
-    "@astrojs/tailwind": "5.1.0",
     "@astrojs/vercel": "8.2.10",
     "@fontsource-variable/roboto-flex": "^5.0.8",
     "@lucide/astro": "^0.546.0",
+    "@tailwindcss/vite": "^4.1.14",
     "@types/dom-to-image": "^2.6.7",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
@@ -30,10 +30,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.19",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.11"

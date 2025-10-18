@@ -116,7 +116,7 @@ export default function RestaurantRoulette() {
       </h6>
       <button
         onClick={rollChoice}
-        className="rounded bg-blue-500 px-4 py-2 font-bold transition-colors hover:bg-blue-700"
+        className="rounded-sm bg-blue-500 px-4 py-2 font-bold transition-colors hover:bg-blue-700"
       >
         <Dices className="me-2 inline align-top" />
         Roll!
